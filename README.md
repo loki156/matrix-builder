@@ -6,8 +6,8 @@ Create unique Jimdo websites using advanced customizations, CSS, JS plugins and 
 Copy the below files and paste them to your website ( Menu> Settings> Edit Head )
 
 ```html
-<script src="https://cdn.jsdelivr.net/gh/loki156/matrix-page-builder/dist/matrix-builder.min.js" async="true" type="text/javascript"></script>
-<link href="https://cdn.jsdelivr.net/gh/loki156/matrix-page-builder/dist/matrix-builder.min.css" rel="stylesheet" type="text/css" />
+<script src="https://cdn.jsdelivr.net/gh/loki156/matrix-builder/dist/matrix-builder.min.js" async="true" type="text/javascript"></script>
+<link href="https://cdn.jsdelivr.net/gh/loki156/matrix-builder/dist/matrix-builder.min.css" rel="stylesheet" type="text/css" />
 ```
 
 **Option 2: download  all source files and host them on your own website**
