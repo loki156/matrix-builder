@@ -1,19 +1,11 @@
 # Matrix Page Builder
 Create unique Jimdo websites using advanced customizations, CSS, JS plugins and pre-made design sections.
 ## Installation
-**Option 1: Install it via CDN**
 
-Copy the below files and paste them to your website ( Menu> Settings> Edit Head )
+**Download all source files and host them on your own website**
 
-```html
-<script src="https://cdn.jsdelivr.net/gh/loki156/matrix-builder/dist/matrix-builder.min.js" type="text/javascript"></script>
-<link href="https://cdn.jsdelivr.net/gh/loki156/matrix-builder/dist/matrix-builder.min.css" rel="stylesheet" type="text/css" />
-```
+The detailed documentation is available [here](https://www.matrix-themes.com/page-builder/) 
 
-**Option 2: download  all source files and host them on your own website**
-
-![files](https://user-images.githubusercontent.com/85053221/210156696-debcd273-6e8c-4866-9633-0b2b9d6e4117.png)
-![edit-head](https://user-images.githubusercontent.com/85053221/210156726-2522bb99-d17b-4306-820d-a2fbd7a58484.png)
 
 **Style Editor**
 
