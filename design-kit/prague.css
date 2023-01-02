@@ -1,7 +1,4 @@
 
-
-<style>
-/* <![CDATA[ */
 /*** Design kit for Prague template ***/
 .jtpl-main__inner,.jtpl-breadcrumb, .jtpl-content, .jtpl-footer__inner, .jtpl-header__inner,.jtp-sidebar__inner  {
   max-width: 1170px;
@@ -97,5 +94,3 @@
   border-top: none;
   padding: 0em;
 }
-/*]]>*/
-</style>
