@@ -1,7 +1,4 @@
 
-
-<style>
-/* <![CDATA[ */
 /*** Design kit for Rome template ***/
 .jtpl-navigation__inner li.jmd-nav__list-item-0 {
   margin:5px 0;
@@ -76,5 +73,3 @@
 .jtpl-breadcrumb, .jtpl-content, .jtpl-footer__inner, .jtpl-header__inner, .jtpl-sidebar__inner  {
   max-width: 1170px;
 }
-/*]]>*/
-</style>
