@@ -1,7 +1,4 @@
 
-
-<style>
-/* <![CDATA[ */
 /*** Design kit for Malaga template ***/
 .jtpl-header {
     -webkit-box-shadow: 0px 0px 18px 1px rgb(0 0 0 / 10%);
@@ -125,5 +122,4 @@
 .jtpl-breadcrumb, .jtpl-content, .jtpl-footer__inner, .jtpl-header__inner, .jtpl-sidebar__inner  {
    max-width: 1170px;
 }
-/*]]>*/
-</style>
+
