@@ -4,7 +4,7 @@
   margin:5px 0;
   padding:0;
 }
- .jtpl-navigation__inner li.jmd-nav__list-item-0> a {
+ .jtpl-navigation__inner li.jmd-nav__list-item-0> a,.jtpl-navigation__inner .onepager a {
   background:transparent!important;
   padding: 0!important;
   margin: 3px 20px!important;
