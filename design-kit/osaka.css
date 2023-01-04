@@ -20,7 +20,7 @@
   padding:20px 0;
 }
 
-.jtpl-navigation li.jmd-nav__list-item-0> a {
+.jtpl-navigation li.jmd-nav__list-item-0> a,.jtpl-navigation__inner .onepager a {
   background:transparent!important;
   padding: 2px 0!important;
   margin: 5px 20px!important;
