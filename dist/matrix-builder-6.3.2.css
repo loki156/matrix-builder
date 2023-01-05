@@ -1,7 +1,7 @@
 /* -------------------------------------------------------------------------------- /
 
     MATRIX PAGE BUILDER
-    VERSION: 6.2 (11.12.2022)
+    VERSION: 6.3.2 (05.01.2023)
     DESCRIPTION: Front-End framework for Jimdo Creator websites
     AUTHOR: Serhiy Hembarevskyy
     URI: https://www.matrix-themes.com/page-builder
@@ -1447,40 +1447,6 @@ ul.tabs-nav > li:hover,ul.tabs-nav > li.active{
   top: 0;
   left:0;
 }
-
-  /* customize header using body class */
-  .no-hero .jqbga-container {
-     display:none!important;
-  }
-
-  .has-small-hero .jqbga-container {
-     height:40vh!important;
-  }
-
-
-  @media only screen and (min-width: 290px) and (max-width: 745px) {
-
-  #hs-video {
-  display:none;
-  }
-  .no-hero-mobile .jqbga-container {
-     display:none!important;
-  }
-
-  }
-
-  .bg-caption{
-   display:none;
-   width: 100%;
-   margin:0 auto;
-   height: 50%;
-   overflow: hidden;
-   background:none;
-   position: absolute;
-   top: 50%; left: 0; bottom: 0; right: 0;
-   z-index:999;
-  }
-
 
   @media only screen and (min-width: 290px) and (max-width: 745px) {
   .rel-mobile-only {
@@ -3378,6 +3344,66 @@ Copyright (c) 2013 Daniel Eden
 /* -------------------------------------------------------------------------------- /
   [06]   UPDATES
 / -------------------------------------------------------------------------------- */
+/*** template tweaks ***/
+
+.matrix .jtpl-header {
+    position:relative;
+}
+
+
+/***  end template tweaks ***/
+
+.draggable-header {
+  display:inline-block;
+  vertical-align: middle;
+  width:100%;
+}
+
+.onepager nav ul {
+  margin:0;
+  padding:0;
+}
+
+.onepager nav ul li {
+  display:inline-block;
+}
+
+.onepager.is-vertical nav ul li {
+  display:block;
+}
+
+
+@media only screen and (max-width: 768px){
+.onepager nav ul li {
+  display:block;
+ }
+}
+
+.jtpl-subnavigation .onepager,.jtpl-navigation__sub .onepager {
+    display:none;
+}
+
+
+.section span {
+   display:none;
+}
+
+.matrix .section span {
+   display:block;
+}
+
+.matrix .section {
+   background:#404040;
+   border-radius:4px;
+   font-family: "Brandon Text",Asap,Verdana,Arial,sans-serif!important;
+   -webkit-font-smoothing: antialiased;
+   font-size:12px;
+   font-weight:400;
+   letter-spacing:0;
+   color:#fff;
+   padding:7px;
+   margin-top:0px;
+}
 
 .cc-content-parent{opacity:0;}
 
@@ -5007,8 +5033,12 @@ a.bold-underline:hover {
     opacity:0.8;
 }
 
-.is-draggable .cc-m-hgrid-edit {
+.is-draggable .cc-m-hgrid-edit span,.draggable-logo .cc-m-hgrid-edit span,.draggable-header .cc-m-hgrid-edit span,.draggable-top-header .cc-m-hgrid-edit span,.draggable-btm-header .cc-m-hgrid-edit span,.draggable-right-header .cc-m-hgrid-edit span {
    display:none;
+}
+
+.draggable-logo .icon-move:before,.draggable-header .icon-move:before,.draggable-top-header .icon-move:before,.draggable-right-header .icon-move:before,.draggable-btm-header .icon-move:before {
+    content: "";
 }
 
 .is-matrix-block {
