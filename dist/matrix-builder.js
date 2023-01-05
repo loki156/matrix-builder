@@ -1,9 +1,9 @@
 /*
- *  Matrix Page Builder v6.3
+ *  Matrix Page Builder v6.3.2
  *  Front-End Framework for Jimdo Creator websites
  *  https://www.matrix-themes.com/page-builder/
  *  Author: Serhiy Hembarevskyy
- *  Updated: 26.12.2022
+ *  Updated: 05.01.2023
  */
 
 
@@ -85,82 +85,80 @@ $(document).ready(function() {
 if ($('.cc-bs').css('text-align') == 'center') {
    $('body').addClass('matrix');
 }
+// admin menu
 $( '<a href="#0" class="cd-btn"><\/a><div class="cd-panel from-left"> <header class="cd-panel-header link-white"> <span><a style="text-decoration: none!important;" href="https://www.matrix-themes.com/page-builder/dashboard/" target="iframe-holder">Matrix Builder<\/a><\/span> <a href="#0" class="cd-panel-close">Close<\/a> <\/header> <div class="cd-panel-container rel"> <div class="cd-panel-content hs-left col-4"> <div class="invisibleh"> <a class="mt" href="https://www.matrix-themes.com/page-builder/docs" target="iframe-holder">Documentation<\/a> <a class="mt" href="https://www.matrix-themes.com/page-builder/helper-classes" target="iframe-holder">Helper classes<\/a> <a class="mt" href="https://www.matrix-themes.com/page-builder/widgets" target="iframe-holder">Widgets<\/a><a class="popup-vimeo mt" href="https://cms.e.jimdo.com/app/siteadmin/layout/api/" target="iframe-holder">Custom layout<\/a> <a class="mt is-locked" href="https://www.matrix-themes.com/page-builder/block-elements" target="iframe-holder">Block elements<\/a> <a class="mt is-locked" href="https://www.matrix-themes.com/page-builder/add-ons" target="iframe-holder">Add ons<\/a> <a class="mt is-locked" href="https://www.matrix-themes.com/page-builder/fluid-sections" target="iframe-holder">Fluid sections<\/a><a class="mt" href="https://www.matrix-themes.com/support" target="iframe-holder">Support<\/a> <a class="mt is-upgrade-btn weight-600" href="https://www.matrix-themes.com/page-builder/upgrade" target="iframe-holder">Upgrade<\/a> <\/div><\/div><div class="hs-left" style="padding: 50px 0px 0 0px;height:100%;width: auto;overflow:hidden;"> <div class="cc-box"> <iframe name="iframe-holder" id="iframe-holder" class="" style="height:100%;box-sizing: border-box;display: block;"><\/iframe> <\/div><\/div><\/div><\/div>' ).insertAfter( "#cc-inner" );
 $( '<div class="wrap-collabsible admin-only" style="position:fixed;top:0;"><input id="collapsible" class="toggle" type="checkbox"/> <label for="collapsible" class="mtx-toggle"> <\/label><div class="collapsible-content"><div class="content-inner"><div class="inner style-switcher is-draggable" style="background:#2e2e2e;max-width:400px;"><div class="content-switcher is-draggable"><\/div><\/div><\/div> <\/div><\/div>' ).insertAfter( "#cc-inner" );
 // lazy load
 var viewPortHeight = $(window).height();
-$(".lazy").each(function(){
+$('.lazy').each(function(){
   offsetTop = $(this).offset().top;
   if(offsetTop < viewPortHeight){
     $(this).addClass("loaded");
   }
 });
-
 $(window).on("scroll", function(){
     scrollTop = $(window).scrollTop();
-    $(".lazy").each(function(){
-      offsetTop = $(this).offset().top - scrollTop;
-      if(offsetTop < viewPortHeight){
-        $(this).addClass("loaded");
-      }
-    });
+$('.lazy').each(function(){
+    offsetTop = $(this).offset().top - scrollTop;
+    if(offsetTop < viewPortHeight){
+        $(this).addClass('loaded');
+     }
+  });
 });
 // Magnific Popup plugin
-     $('.popup-youtube, .popup-vimeo, .popup-gmaps').magnificPopup({
-          disableOn: 200,
-          type: 'iframe',
-          mainClass: 'mfp-fade',
-          removalDelay: 160,
-          preloader: false,
-          fixedContentPos: false
-        });
+$('.popup-youtube, .popup-vimeo, .popup-gmaps').magnificPopup({
+   disableOn: 200,
+   type: 'iframe',
+   mainClass: 'mfp-fade',
+   removalDelay: 160,
+   preloader: false,
+   fixedContentPos: false
+});
 $('.popup-with-zoom-anim').magnificPopup({
-          type: 'inline',
-          fixedContentPos: false,
-          fixedBgPos: true,
-          overflowY: 'auto',
-          closeBtnInside: true,
-          preloader: false,
-          midClick: true,
-          removalDelay: 300,
-          mainClass: 'my-mfp-zoom-in'
-        });
+   type: 'inline',
+   fixedContentPos: false,
+   fixedBgPos: true,
+   overflowY: 'auto',
+   closeBtnInside: true,
+   preloader: false,
+   midClick: true,
+   removalDelay: 300,
+   mainClass: 'my-mfp-zoom-in'
+});
 // Get the height of our container
         var container_height = $('.main-equal').height();
        // $(".equal").height(container_height);
-$(".equal").css('min-height',container_height);
-// one pager 
-$('.onepager').onePageNav().appendTo($("ul.cc-nav-level-0"));
+$('.equal').css('min-height',container_height);
 //open the lateral panel
-        $('.cd-btn').on('click', function(event){
-                event.preventDefault();
-                $('.cd-panel').addClass('is-visible');
-                $('.jtpl-main').addClass('is-pushed');
-                $("#cms", window.parent.document).parent().parent().parent().parent().parent().css("top", "0").css("height", "100%");
-        });
+$('.cd-btn').on('click', function(event){
+  event.preventDefault();
+    $('.cd-panel').addClass('is-visible');
+    $('.jtpl-main').addClass('is-pushed');
+    $("#cms", window.parent.document).parent().parent().parent().parent().parent().css("top", "0").css("height", "100%");
+  });
 //close the lateral panel
-        $('.cd-panel').on('click', function(event){
-                if( $(event.target).is('.cd-panel') || $(event.target).is('.cd-panel-close') ) {
-                        $('.cd-panel').removeClass('is-visible');
-                        $('.jtpl-main').removeClass('is-pushed');
-                        $("#cms", window.parent.document).parent().parent().parent().parent().parent().css("top", "48px").css("height","calc(100vh - 48px)");
-                        event.preventDefault();
-                }
-        });
-$(".cd-panel"). insertAfter($("#cc-clipboard"));
-$(".top-holder").insertBefore($(".jtpl-content"));
-$('a.cd-btn').insertBefore($("#cc-inner"));
+$('.cd-panel').on('click', function(event){
+   if( $(event.target).is('.cd-panel') || $(event.target).is('.cd-panel-close') ) {
+     $('.cd-panel').removeClass('is-visible');
+     $('.jtpl-main').removeClass('is-pushed');
+     $("#cms", window.parent.document).parent().parent().parent().parent().parent().css("top", "48px").css("height","calc(100vh - 48px)");
+        event.preventDefault();
+    }
+});
+$('.cd-panel'). insertAfter($('#cc-clipboard'));
+$('a.cd-btn').insertBefore($('#cc-inner'));
 $('.cc-jimdo').removeClass('cc-m-blogselection');
-$(".is-switcher").appendTo($(".content-switcher"));
+$('.is-switcher').appendTo($('.content-switcher'));
+// admin menu links
 $(".mt").on("click", function(e){
   $("a.mt").removeClass("active");
   $(this).addClass("active");
 });
 $('a.is-popup').on('click', function(){
-                newwindow=window.open($(this).attr('href'),'','height=600,width=600');
-                if (window.focus) {newwindow.focus()}
-                return false;
-        });
+    newwindow=window.open($(this).attr('href'),'','height=600,width=600');
+      if (window.focus) {newwindow.focus()}
+        return false;
+});
 // add alt class
 $('img').each(function() {
        $(this).closest('.j-module').addClass( $(this).attr('alt') );
@@ -170,7 +168,7 @@ $('.cc-imagewrapper').addClass('matrix-img');
 // wrap Jimdo sections
 $('.j-hgrid').wrap( "<div class='matrix-grid' />" );
 $('.cc-m-hgrid-column > div').wrap( "<div class='matrix-column' />" );
-// use ins tag for column
+// ins tag for column
 $('ins').each(function() {
     $(this).closest('.matrix-column').addClass($(this).text());
     $(this).closest('.j-module').addClass('has-padding');
@@ -188,73 +186,89 @@ $('.cc-m-htmlcode').hover(
     $('var,ins', this ).hide();
   }
 );
+// one pager 
+$('.onepager').onePageNav({
+    currentClass: 'cc-nav-current'
+    });
+$('.draggable-header').appendTo($('.j-nav-variant-nested'));
+$('.onepager nav ul li a').on('click', function() {
+  $('.jtpl-navigation__checkbox,.jtpl-mobile-navigation__checkbox,.jtpl-navigation-toggle-checkbox,.jtpl-section-aside__checkbox')[0].click();
+});
+$('.onepager nav ul li').click(function() {
+    $('.onepager nav ul li').removeClass('cc-nav-current');
+   $(this).addClass('cc-nav-current');
+});
+// draggable header features
+$('.draggable-top-header').prependTo($('.jtpl-header'));
+// $('.draggable-top-header.has-large-inner .matrix-column').addClass('add-5');
+$('.draggable-top-header.has-inner > .j-hgrid').addClass('inner');
+$('.draggable-btm-header'). insertAfter($('.jtpl-header'));
+$('.draggable-logo').prependTo($('.jtpl-title'));
+// full width image gallery
 $('.is-fullwidth.is-col-1 .cc-m-gallery-stack-column').css('width', '100%');
 $('.is-fullwidth.is-col-2 .cc-m-gallery-stack-column').css('width', '50%');
 $('.is-fullwidth.is-col-3 .cc-m-gallery-stack-column').css('width', '33.33333333%');
 $('.is-fullwidth.is-col-4 .cc-m-gallery-stack-column').css('width', '25%');
 $('.is-fullwidth .cc-m-gallery-stack-column .cc-m-gallery-stack-item img').attr('style', 'height:  auto');
-// setup parallax
+// background image for module 'photo'
 $('.is-matrix-parallax img').each(function(i, elem) {
   var img = $(elem);
   var div = $("<div class='hs-fullwidth is-parallax ' />").css({
     background: "url(" + img.attr("src") + ") no-repeat center"
 //    width: img.width() + "px",
 //   height: img.height() + "px",
-
    
   });
   img.replaceWith(div);
 });
-// lazy page load
+// page load with the style editor
     $(".cc-content-parent").css("opacity","1");
 // white label
-    if ($('.j-module:contains("is-white-label")').length) {
-        $('.cd-btn').css("opacity","0");
-    }
+if ($('.j-module:contains("is-white-label")').length) {
+    $('.cd-btn').css("opacity","0");
+}
     $(".cc-m-help-button").click(function(){
-   $('.cd-btn').css("opacity","1");        
+    $('.cd-btn').css("opacity","1");        
  });
 // Parallax
 $(window).enllax();
  new universalParallax().init();
- // Jarallax
- $('.jarallax').jarallax({
+// Jarallax
+$('.jarallax').jarallax({
   speed: 0.2,
 });
 // toggles
-        $('div.toggle > div.content').hide();
-        $('div.toggle > a.switch.opened').next().show();
-
-        $('div.toggle > a.switch').click(function() {
-                $(this).toggleClass('opened').next().slideToggle('fast');
-                return false;
-        });
+$('div.toggle > div.content').hide();
+  $('div.toggle > a.switch.opened').next().show();
+    $('div.toggle > a.switch').click(function() {
+       $(this).toggleClass('opened').next().slideToggle('fast');
+        return false;
+   });
 // accordeon
-  $('.accordeon_content').hide();
-  $('.accordeon_title').click(function(){
-    $(this).parent().toggleClass('active').siblings().removeClass('active');
+$('.accordeon_content').hide();
+$('.accordeon_title').click(function(){
+  $(this).parent().toggleClass('active').siblings().removeClass('active');
     $('.accordeon_content').slideUp();
     if(!$(this).next().is(":visible")) {
         $(this).next().slideDown();
       }
   });
 // tabs
-        $('ul.tabs-nav > li:first-child').addClass('active');
-        $('div.tab-content').hide();
-        $('div.tab-content:first-child').show();
+$('ul.tabs-nav > li:first-child').addClass('active');
+   $('div.tab-content').hide();
+   $('div.tab-content:first-child').show();
+     $('ul.tabs-nav a').click(function() {
+       var nav = $(this).parent().parent('ul.tabs-nav');
+       if (!$(this).parent().hasClass('active')) {
+        $('> li', nav).removeClass('active');
+        $(this).parent().addClass('active');
+          var target = $(this).attr('href');
+          var container = $('div.tabs-container').has(target);
+          $('> .tab-content', container).hide();
+          $(target, container).fadeIn();
+        }
+    return false;
+  });
 
-        $('ul.tabs-nav a').click(function() {
-                var nav = $(this).parent().parent('ul.tabs-nav');
-                if (!$(this).parent().hasClass('active')) {
-                        $('> li', nav).removeClass('active');
-                        $(this).parent().addClass('active');
-
-                        var target = $(this).attr('href');
-                        var container = $('div.tabs-container').has(target);
-                        $('> .tab-content', container).hide();
-                        $(target, container).fadeIn();
-                }
-                return false;
-        });
 });
 })(jQuery);
