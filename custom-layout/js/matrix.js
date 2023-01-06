@@ -314,7 +314,7 @@ jQuery.noConflict();
       $('body').addClass('no-hero')
     }
     if ($('.draggable-hero').hasClass('has-btm-arrow')) {
-     $('.matrix-hero').addClass('has-btm-arrow')
+     $('.matrix-hero').addClass('is-matrix has-btm-arrow')
     }
     if ($('.draggable-hero').hasClass('has-white-overlay')) {
       $('.matrix-hero .hs-overlay').css({
