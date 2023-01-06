@@ -313,10 +313,8 @@ jQuery.noConflict();
     if ($('div').hasClass('no-hero')) {
       $('body').addClass('no-hero')
     }
-    if ($('.draggable-hero').hasClass('has-arrow')) {
-      $('#downbutton').css({
-        "display": "block"
-      });
+    if ($('.draggable-hero').hasClass('has-btm-arrow')) {
+     $('.matrix-hero').addClass('has-btm-arrow')
     }
     if ($('.draggable-hero').hasClass('has-white-overlay')) {
       $('.matrix-hero .hs-overlay').css({
