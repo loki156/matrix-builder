@@ -399,6 +399,16 @@ jQuery.noConflict();
         window.location.hash = target;
       });
     });
+    // wow
+wow = new WOW(
+    {
+      boxClass:     'wow',
+      animateClass: 'animated',
+      mobile:       true,
+      offset:       100
+    }
+  )
+  wow.init();
 
   });
 })(jQuery);
