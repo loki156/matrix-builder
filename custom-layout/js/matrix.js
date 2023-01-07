@@ -2,7 +2,7 @@
 * @version 2.0.0
 * @author Serhiy Hembarevskyy (https://www.matrix-themes.com/)
 * @description Custom plugins for Matrix themes
-* @updated 06-01-2023
+* @updated 07-01-2023
 
 
 /*! jQuery v3.6.0 | (c) OpenJS Foundation and other contributors | jquery.org/license */
