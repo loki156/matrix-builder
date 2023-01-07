@@ -371,6 +371,17 @@ jQuery.noConflict();
       }
       return false;
     });
+    // smooth scroll
+    $('a[href^="*"]').on('click',function (e) {
+            e.preventDefault();
+            var target = this.hash,
+            $target = $(target);
+            $('html, body').stop().animate({
+                'scrollTop': $target.offset().top
+            }, 900, 'swing', function () {
+                window.location.hash = target;
+            });
+        });
     // full width photo gallery
     $(".is-fullwidth.is-col-1 .cc-m-gallery-stack-column").css("width", "100%");
     $(".is-fullwidth.is-col-2 .cc-m-gallery-stack-column").css("width", "50%");
@@ -395,18 +406,6 @@ wow = new WOW(
     }
   )
   wow.init();
-    
-    // smooth scroll
-    $('a[href^="*"]').on('click', function(e) {
-      e.preventDefault();
-      var target = this.hash,
-        $target = $(target);
-      ('html, body').stop().animate({
-        'scrollTop': $target.offset().top
-      }, 900, 'swing', function() {
-        window.location.hash = target;
-      });
-    });
 
   });
 })(jQuery);
