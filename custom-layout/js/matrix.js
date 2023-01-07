@@ -385,7 +385,17 @@ jQuery.noConflict();
       });
       img.replaceWith(div);
     });
-
+    // wow
+wow = new WOW(
+    {
+      boxClass:     'wow',
+      animateClass: 'animated',
+      mobile:       true,
+      offset:       100
+    }
+  )
+  wow.init();
+    
     // smooth scroll
     $('a[href^="*"]').on('click', function(e) {
       e.preventDefault();
@@ -397,16 +407,6 @@ jQuery.noConflict();
         window.location.hash = target;
       });
     });
-    // wow
-wow = new WOW(
-    {
-      boxClass:     'wow',
-      animateClass: 'animated',
-      mobile:       true,
-      offset:       100
-    }
-  )
-  wow.init();
 
   });
 })(jQuery);
