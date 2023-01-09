@@ -2,7 +2,7 @@
 * @version 2.0.0
 * @author Serhiy Hembarevskyy (https://www.matrix-themes.com/)
 * @description Custom plugins for Matrix themes
-* @updated 07-01-2023
+* @updated 09-01-2023
 
 
 /*! jQuery v3.6.0 | (c) OpenJS Foundation and other contributors | jquery.org/license */
@@ -282,7 +282,8 @@ jQuery.noConflict();
     $(".draggable-top-header.has-large-inner .matrix-column").addClass("add-5");
     $(".draggable-top-header.has-inner > .j-hgrid").addClass("inner");
     $(".draggable-logo").appendTo($(".hs-logo"));
-    $(".draggable-right-header").appendTo($(".magic-field"));
+    $(".draggable-top-header").insertBefore($(".hs-header"));
+    $(".draggable-btm-header").insertAfter($(".hs-header"));
     if ($('.magic-field').has('.onepager').length) {
       $('.magic-field').addClass('center-align');
     }
