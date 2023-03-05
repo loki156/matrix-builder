@@ -1,8 +1,8 @@
 /**
-* @version 2.0.2
+* @version 2.0.3
 * @author Serhiy Hembarevskyy (https://www.matrix-themes.com/)
 * @description Custom plugins for Matrix themes
-* @updated 21-01-2023
+* @updated 04-03-2023
 
 
 /*! jQuery v3.6.0 | (c) OpenJS Foundation and other contributors | jquery.org/license */
@@ -260,9 +260,19 @@ jQuery.noConflict();
       $(this).addClass("current");
     });
     // alt classes
-    $("img").each(function() {
-      $(this).closest(".j-module").addClass($(this).attr("alt"));
-    });
+  //  $("img").each(function() {
+  //    $(this).closest(".j-module").addClass($(this).attr("alt"));
+  //  });
+  $("img").each(function() {
+    const parentModule = $(this).closest(".j-module");
+    const parentGrid = $(this).closest(".j-hgrid");
+      
+    if (parentModule.length && !parentGrid.length) {
+      parentModule.addClass($(this).attr("alt"));
+    } else if (parentGrid.length) {
+      $(this).addClass($(this).attr("alt"));
+    }
+  });
     // wrap classes for columns
     $(".j-hgrid").addClass("loaded");
     $(".cc-imagewrapper").addClass("matrix-img");
