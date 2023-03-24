@@ -1,6 +1,80 @@
 /* -------------------------------------------------------------------------------- /
-        [09]   UPDATES - UPDATED 02.01.2023
+        [09]   UPDATES - UPDATED 20.03.2023
 / -------------------------------------------------------------------------------- */
+@media only screen and (max-width: 745px) {
+  .is-reverse .is-flex {
+    flex-direction: column-reverse;
+    display:flex!important
+  }
+  
+}
+
+
+.cc-imagewrapper img {
+  box-sizing: border-box;
+}
+
+#cc-inner .cc-invisible>a,#cc-inner span.cc-invisible {
+  text-decoration: line-through!important;
+}
+
+#cc-inner .is-parallax {
+  background-attachment: scroll!important;
+}
+
+#cc-inner .is-matrix-parallax .is-parallax {
+  background-attachment: fixed!important;
+}
+
+
+.has-fadeIn {
+    animation: fadeInAnimation ease 2s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+     }
+}
+
+
+#cc-inner .j-text ul,#cc-inner .j-text ol {
+    padding-left:10px;
+}
+
+#cc-inner .j-module p a:link,#cc-inner .j-module p a:visited,
+#cc-inner .hs-top-header a:link,#cc-inner .hs-top-header a:visited {
+    -webkit-transition: all 200ms linear;
+    -o-transition: all 200ms linear;
+    -moz-transition: all 200ms linear;
+}
+
+#cc-inner .j-module p a:link:hover:not(p a.link-outlined),#cc-inner .hs-top-header a:link:hover,#cc-inner .j-module p a:link:active,#cc-inner .j-module p a:focus,#cc-inner .hs-top-header a:focus{
+    opacity:0.7;
+}
+
+.has-large-nav .hs-header .is--center .hs-menu:not(.matrix .has-large-nav .hs-header .is--center .hs-menu) {
+  display:none;
+}
+
+.has-large-nav .button_container:not(.matrix .has-large-nav .button_container) {
+  display:block;
+  position: fixed;
+  top: 24px;
+  right: 50px;
+}
+
+@media only screen and (max-width: 1023px) {
+.has-large-nav .button_container {
+  top: 10px;
+  right: 10px;
+ }
+}
 
 .section {
    margin-top: -100px;
@@ -623,7 +697,8 @@
    height:5px;
 }
 
-.is-fullwidth,.is--fullwidth,.is-fullwidth-img .j-imageSubtitle,.is-fullwidth-img .j-imageSubtitle img{
+.is-fullwidth,.is--fullwidth,.is-fullwidth-img .j-imageSubtitle,.is-fullwidth-img .j-imageSubtitle img,
+.is-fullwidth-img .cc-imagewrapper img {
    width: 100vw;
    position: relative;
    left: 50%;
@@ -681,13 +756,13 @@
    flex-grow: 1;
 }
 
-/* Safari 10.1+ */
+/* Safari 10.1+
 @media not all and (min-resolution:.001dpcm) { @media {
 #cc-inner .is-img {
     transform:none!important;
     }
  }
-}
+} */
 
 #cc-inner .is-img, .is-img-100 .j-imageSubtitle figure img {
     position: absolute;
@@ -719,7 +794,7 @@
 #cc-inner .mobile-auto, #cc-inner img.is-img.mobile-auto {
     min-height: auto!important;
     height:auto;
-    padding:auto!important;
+    padding: inherit;
   }
 #hs-container .cc-catalog-container-new .cc-catalog-galleryview .j-webview-product-image,
 #hs-container .cc-shop-product-img .cc-shop-product-main-image,
@@ -1059,9 +1134,13 @@ figure.snip1477.hover figcaption {
    margin-right: auto;
 }
 
-#hs-container .j-imageSubtitle img[alt*="is-100"],
-#hs-container .cc-imagewrapper.cc-m-image-align-1 img[alt*="is-100"],
-#hs-container .cc-imagewrapper.cc-m-image-align-2 img[alt*="is-100"] {
+.j-imageSubtitle {
+   box-sizing: border-box;
+}
+
+#hs-container .j-imageSubtitle img[alt*="w-100"],
+#hs-container .cc-imagewrapper.cc-m-image-align-1 img[alt*="w-100"],
+#hs-container .cc-imagewrapper.cc-m-image-align-2 img[alt*="w-100"] {
    width:100%!important;
 }
 
@@ -2022,6 +2101,10 @@ a.bold-underline:hover {
    margin-right:5px;
 }
 
+.draggable-btm-header .n {
+   padding:0;
+}
+
 
 @media only screen and (max-width: 745px) {
 .m-columns {
@@ -2111,6 +2194,7 @@ a.bold-underline:hover {
     position:relative;
     bottom:0;
     left: 0;
+    background: #f0f0f0;
     width: auto;
     opacity: 1;
     min-height: auto;
@@ -2143,8 +2227,8 @@ a.bold-underline:hover {
     transition: 1.3s .1s cubic-bezier(.51,.01,0,1.06);
 }
 
-.wow.is-folded-left-img.animated img,.wow.is-folded-left.animated,
-.wow.is-folded-right-img.animated img,.wow.is-folded-right.animated {
+.wow.is-folded-left-img.animate__animated img,.wow.is-folded-left.animate__animated,
+.wow.is-folded-right-img.animate__animated img,.wow.is-folded-right.animate__animated {
     -webkit-clip-path: inset(0 0 0 0);
     clip-path: inset(0 0 0 0);
 }
@@ -2167,11 +2251,11 @@ a.bold-underline:hover {
   transition: width .5s ease-in-out;
 }
 
-.wow.is-viewport-anim.animated:after {
+.wow.is-viewport-anim.animate__animated:after {
   width: 100%;
 }
 
-.wow.is-viewport-anim.animated.is-image:after {
+.wow.is-viewport-anim.animate__animated.is-image:after {
   width: 30%;
   height: 20%!important;
   top:5%;
@@ -2226,7 +2310,12 @@ var,ins {
 }
 
 .matrix .hs-logo .cc-m-htmlcode{
-     position:absolute;
+     position: absolute;
+     width: 100%;
+}
+
+.matrix .has-logo-edit .hs-logo .cc-m-htmlcode{
+     position:relative;
 }
 
 var:before,ins:before {
@@ -2373,6 +2462,10 @@ var:before,ins:before {
 }
 
 /*** fluid sections ***/
+
+#cc-inner .has-height-auto {
+  height:auto!important;
+}
 
 #cc-inner .inner {
   position: relative;
@@ -2524,6 +2617,11 @@ var:before,ins:before {
    touch-action:initial!important;
 }
 
+#cc-inner .is-height-auto {
+    height:auto!important;
+    min-height:auto!important;
+}
+
 @media only screen  and (max-width: 1023px){
 .is-fluid,#cc-inner .rel-mobile{
     position: relative;
@@ -2550,6 +2648,7 @@ var:before,ins:before {
 #cc-inner .m-add-top-20 {
     margin-top:20px!important;
 }
+
 
 .m-height-auto {
     height:auto!important;
@@ -2629,9 +2728,9 @@ var:before,ins:before {
     position:absolute!important;
 }
 
-.col-12, .col-11, .col-10, .col-10, .col-9, .col-8, .col-7, .col-6, .col-5, .col-4, .col-3, .col-2, .col-1 {
-    width: 100%!important;
- }
+.j-text .col-12, .j-text .col-11, .j-text .col-10, .j-text .col-10, .j-text .col-9, .j-text .col-8, .j-text .col-7, .j-text .col-6, .j-text .col-5, .j-text .col-4, .j-text .col-3, .j-text .col-2, .j-text .col-1 {
+  width: 100%!important;
+  }
 }
 
 .mask-dots {
