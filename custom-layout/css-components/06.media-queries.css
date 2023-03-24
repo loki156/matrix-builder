@@ -1,6 +1,24 @@
 /* -------------------------------------------------------------------------------- /
-        [06]     MEDIA QUERIES - UPDATED 28.09.2022
+        [06]     MEDIA QUERIES - UPDATED 17.01.2023
 / -------------------------------------------------------------------------------- */
+
+html {
+    font-size: 62.5%;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+
+#cc-inner h1,.j-module h1,
+#cc-inner h2,.j-module h2,
+#cc-inner h3,.j-module h3,
+#cc-inner h4,.j-module h4 {
+    word-wrap: break-word;
+}
+
+#cc-inner .jmd-nav .jmd-nav__toggle-button {
+   width:35px;
+   height:35px;
+}
 
 
 /*** Tablet Layout 768px ***/
