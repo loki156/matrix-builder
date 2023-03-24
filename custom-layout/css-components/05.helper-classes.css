@@ -1,7 +1,7 @@
 
 
 /* -------------------------------------------------------------------------------- /
-        [05]     HELPER CLASSES - UPDATED 06.11.2022
+        [05]     HELPER CLASSES - UPDATED 27.01.2023
 / -------------------------------------------------------------------------------- */
 
 .is-uppercase,.cc-m-download-file-link.is-uppercase,#cc-inner .j-formnew input.is-uppercase,h1.is-uppercase, .is-uppercase h1, h2.is-uppercase, .is-uppercase h2, h3.is-uppercase, .is-uppercase h3, .hs-button.is-uppercase, a.j-calltoaction-link.is-uppercase, .hs-menu nav .is-uppercase {
@@ -849,42 +849,36 @@ h1.no-g-font,h2.no-g-font,h3.no-g-font,h4.no-g-font {
 #hs-container .color-hr .hr {
     border-bottom-width:0px;
     height: 1px;
-    border-bottom-width: 0px;
     border-color:transparent;
 }
 
 #hs-container .color-hr-2 .hr{
     border-bottom-width:0px;
     height: 2px;
-    border-bottom-width: 0px;
     border-color:transparent;
 }
 
 #hs-container .color-hr-3 .hr{
     border-bottom-width:0px;
     height: 3px;
-    border-bottom-width: 0px;
     border-color:transparent;
 }
 
 #hs-container .grey-hr .hr {
     border-bottom-width:0px;
     height: 1px;
-    border-bottom-width: 0px;
     border-color:transparent;
 }
 
 #hs-container .grey-hr-2 .hr{
     border-bottom-width:0px;
     height: 2px;
-    border-bottom-width: 0px;
     border-color:transparent;
 }
 
 #hs-container .grey-hr-3 .hr{
     border-bottom-width:0px;
     height: 3px;
-    border-bottom-width: 0px;
     border-color:transparent;
 }
 
@@ -895,21 +889,18 @@ h1.no-g-font,h2.no-g-font,h3.no-g-font,h4.no-g-font {
 #hs-container .dark-hr .hr {
     border-bottom-width:0px;
     height: 1px;
-    border-bottom-width: 0px;
     border-color:transparent;
 }
 
 #hs-container .dark-hr-2 .hr{
     border-bottom-width:0px;
     height: 2px;
-    border-bottom-width: 0px;
     border-color:transparent;
 }
 
 #hs-container .dark-hr-3 .hr{
     border-bottom-width:0px;
     height: 3px;
-    border-bottom-width: 0px;
     border-color:transparent;
 }
 
@@ -920,21 +911,18 @@ h1.no-g-font,h2.no-g-font,h3.no-g-font,h4.no-g-font {
 #hs-container .white-hr .hr {
     border-bottom-width:0px;
     height: 1px;
-    border-bottom-width: 0px;
     border-color:transparent;
 }
 
 #hs-container .white-hr-2 .hr{
     border-bottom-width:0px;
     height: 2px;
-    border-bottom-width: 0px;
     border-color:transparent;
 }
 
 #hs-container .white-hr-3 .hr{
     border-bottom-width:0px;
     height: 3px;
-    border-bottom-width: 0px;
     border-color:transparent;
 }
 
@@ -1514,101 +1502,117 @@ a.div-link {
    border-bottom: 3px double white;
 }
 
-#cc-inner #hs-container .global-colors .--hover\:opacity:hover:not(.cc-m-download-file-link),
-#cc-inner #hs-container .global-colors  .j-module .--hover\:opacity:hover:not(.cc-m-download-file-link),#cc-inner #hs-container .--hover\:opacity a:hover {    
-    opacity: 0.8!important;
+#cc-inner #hs-container .--hover\:bg-custom,#cc-inner #hs-container .--hover\:bg-custom a,
+#cc-inner #hs-container .--hover\:bg-green,#cc-inner #hs-container .--hover\:bg-green a,
+#cc-inner #hs-container .--hover\:bg-blue,#cc-inner #hs-container .--hover\:bg-blue a,
+#cc-inner #hs-container .--hover\:bg-red,#cc-inner #hs-container .--hover\:bg-red a,
+#cc-inner #hs-container .--hover\:bg-yellow,#cc-inner #hs-container .--hover\:bg-yellow a,
+#cc-inner #hs-container .--hover\:bg-pink,#cc-inner #hs-container .--hover\:bg-pink a,
+#cc-inner #hs-container .--hover\:bg-purple,#cc-inner #hs-container .--hover\:bg-purple a,
+#cc-inner #hs-container .--hover\:bg-cyan,#cc-inner #hs-container .--hover\:bg-cyan a,
+#cc-inner #hs-container .--hover\:bg-indigo,#cc-inner #hs-container .--hover\:bg-indigo a,
+#cc-inner #hs-container .--hover\:bg-teal,#cc-inner #hs-container .--hover\:bg-teal a,
+#cc-inner #hs-container .--hover\:bg-lime,#cc-inner #hs-container .--hover\:bg-lime a,
+#cc-inner #hs-container .--hover\:bg-orange,#cc-inner #hs-container .--hover\:bg-orange a,
+#cc-inner #hs-container .--hover\:bg-brown,#cc-inner #hs-container .--hover\:bg-brown a,
+#cc-inner #hs-container .--hover\:bg-dark,#cc-inner #hs-container .--hover\:bg-dark a,
+#cc-inner #hs-container .--hover\:bg-white,#cc-inner #hs-container .--hover\:bg-white a{
+  opacity:1!important;
+  -webkit-transition: all .3s ease;
+   -moz-transition: all .3s ease;
+   -ms-transition: all .3s ease;
+   -o-transition: all .3s ease;
+   transition: all .3s ease;
 }
 
-#cc-inner #hs-container .global-colors .j-module .ghost-white.--hover\:opacity:hover,#cc-inner #hs-container .global-colors .j-module .ghost-dark.--hover\:opacity:hover {    
-    opacity: 1!important;
-}
 
 #cc-inner #hs-container .global-colors .--hover\:bg-white:hover:not(.cc-m-download-file-link),
-#cc-inner #hs-container .global-colors .j-module .--hover\:bg-white:hover:not(.cc-m-download-file-link),#cc-inner #hs-container .--hover\:bg-white a:hover {    
+#cc-inner #hs-container .global-colors .j-module .--hover\:bg-white:hover:not(.cc-m-download-file-link),
+#cc-inner #hs-container .--hover\:bg-white a:hover {    
     background: #fff!important;
     color:#000!important;
 }
 
-#cc-inner #hs-container .global-colors .--hover\:bg-gray:hover:not(.cc-m-download-file-link),
-#cc-inner #hs-container .global-colors .j-module .--hover\:bg-gray:hover:not(.cc-m-download-file-link),#cc-inner #hs-container .--hover\:bg-gray a:hover {
-    background:#F5F6FF!important;
-    color:#222!important;
-}
-
-#cc-inner #hs-container .global-colors .--hover\:border:hover:not(.cc-m-download-file-link),
-#cc-inner #hs-container .global-colors .j-module .--hover\:border:hover:not(.cc-m-download-file-link),#cc-inner #hs-container .--hover\:border a:hover {    
-    background: transparent!important;
-    border:2px solid;
-    color:#000!important;
-}
-
-#cc-inner #hs-container .global-colors .--hover\:border-white:hover:not(.cc-m-download-file-link),
-#cc-inner #hs-container .global-colors .j-module .--hover\:border-white:hover:not(.cc-m-download-file-link),#cc-inner #hs-container .--hover\:border-white a:hover {    
-    background: transparent!important;
-    border:2px solid #fff;
+#cc-inner #hs-container .global-colors .--hover\:bg-dark:hover:not(.cc-m-download-file-link),
+#cc-inner #hs-container .global-colors .j-module .--hover\:bg-dark:hover:not(.cc-m-download-file-link),
+#cc-inner #hs-container .--hover\:bg-dark a:hover {    
+    background: #000!important;
     color:#fff!important;
 }
 
-#cc-inner #hs-container .--hover\:bg-red:hover:not(.cc-m-download-file-link),
-#cc-inner #hs-container .j-module .--hover\:bg-red:hover:not(.cc-m-download-file-link),#cc-inner #hs-container .--hover\:bg-red a:hover {
-    background:#F44336!important;
+#cc-inner #hs-container a.--hover\:bg-red:hover:not(.cc-m-download-file-link),
+#cc-inner #hs-container .--hover\:bg-red a:hover,
+#cc-inner #hs-container input.--hover\:bg-red:hover{
+    background: #F44336!important;
 }
 
-#cc-inner #hs-container .--hover\:bg-blue:hover:not(.cc-m-download-file-link),
-#cc-inner #hs-container .j-module .--hover\:bg-blue:hover:not(.cc-m-download-file-link),#cc-inner #hs-container .--hover\:bg-blue a:hover {
+#cc-inner #hs-container a.--hover\:bg-blue:hover:not(.cc-m-download-file-link),
+#cc-inner #hs-container .--hover\:bg-blue a:hover,
+#cc-inner #hs-container input.--hover\:bg-blue:hover{
     background:#2196F3!important;
 }
 
-#cc-inner #hs-container  .--hover\:bg-green:not(.cc-m-download-file-link):hover,
-#cc-inner #hs-container .j-module  .--hover\:bg-green:hover:not(.cc-m-download-file-link),#cc-inner #hs-container .--hover\:bg-green a:hover {
+#cc-inner #hs-container a.--hover\:bg-green:hover:not(.cc-m-download-file-link),
+#cc-inner #hs-container .--hover\:bg-green a:hover,
+#cc-inner #hs-container input.--hover\:bg-green:hover{
     background:#4CAF50!important;
 }
 
-#cc-inner #hs-container  .--hover\:bg-yellow:not(.cc-m-download-file-link):hover,
-#cc-inner #hs-container  .j-module .--hover\:bg-yellow:hover:not(.cc-m-download-file-link),#cc-inner #hs-container .--hover\:bg-yellow a:hover  {
+#cc-inner #hs-container a.--hover\:bg-yellow:hover:not(.cc-m-download-file-link),
+#cc-inner #hs-container .--hover\:bg-yellow a:hover,
+#cc-inner #hs-container input.--hover\:bg-yellow:hover{
     background:#FFEB3B!important;
     color:#222!important;
 }
 
-#cc-inner #hs-container  .--hover\:bg-pink:not(.cc-m-download-file-link):hover,
-#cc-inner #hs-container  .j-module .--hover\:bg-pink:hover:not(.cc-m-download-file-link),#cc-inner #hs-container .--hover\:bg-pink a:hover {
+#cc-inner #hs-container a.--hover\:bg-pink:hover:not(.cc-m-download-file-link),
+#cc-inner #hs-container .--hover\:bg-pink a:hover,
+#cc-inner #hs-container input.--hover\:bg-pink:hover {
     background:#E91E63!important;
 }
 
-#cc-inner #hs-container  .--hover\:bg-purple:not(.cc-m-download-file-link):hover,
-#cc-inner #hs-container  .j-module .--hover\:bg-purple:hover:not(.cc-m-download-file-link),#cc-inner #hs-container .--hover\:bg-purple a:hover {
+#cc-inner #hs-container a.--hover\:bg-purple:hover:not(.cc-m-download-file-link),
+#cc-inner #hs-container .--hover\:bg-purple a:hover,
+#cc-inner #hs-container input.--hover\:bg-purple:hover{
     background:#9C27B0!important;
 }
 
-#cc-inner #hs-container  .--hover\:bg-indigo:not(.cc-m-download-file-link):hover,
-#cc-inner #hs-container  .j-module .--hover\:bg-indigo:hover:not(.cc-m-download-file-link),#cc-inner #hs-container .--hover\:bg-indigo a:hover {
+#cc-inner #hs-container a.--hover\:bg-indigo:hover:not(.cc-m-download-file-link),
+#cc-inner #hs-container .--hover\:bg-indigo a:hover,
+#cc-inner #hs-container input.--hover\:bg-indigo:hover{
     background:#3F51B5!important;
 }
 
-#cc-inner #hs-container  .--hover\:bg-cyan:hover:not(.cc-m-download-file-link),
-#cc-inner #hs-container .j-module .--hover\:bg-cyan:hover:not(.cc-m-download-file-link),#cc-inner #hs-container .--hover\:bg-cyan a:hover {
+#cc-inner #hs-container a.--hover\:bg-cyan:hover:not(.cc-m-download-file-link),
+#cc-inner #hs-container .--hover\:bg-cyan a:hover,
+#cc-inner #hs-container input.--hover\:bg-cyan:hover{
     background:#00BCD4!important;
 }
 
-#cc-inner #hs-container  .--hover\:bg-teal:hover:not(.cc-m-download-file-link),
-#cc-inner #hs-container  .j-module .--hover\:bg-teal:hover:not(.cc-m-download-file-link),#cc-inner #hs-container .--hover\:bg-teal a:hover {
+#cc-inner #hs-container a.--hover\:bg-teal:hover:not(.cc-m-download-file-link),
+#cc-inner #hs-container .--hover\:bg-teal a:hover,
+#cc-inner #hs-container input.--hover\:bg-teal:hover{
     background:#009688!important;
 }
 
-#cc-inner #hs-container  .--hover\:bg-lime:hover:not(.cc-m-download-file-link), 
-#cc-inner #hs-container  .j-module .--hover\:bg-lime:hover:not(.cc-m-download-file-link),#cc-inner #hs-container .--hover\:bg-lime a:hover {
+#cc-inner #hs-container a.--hover\:bg-lime:hover:not(.cc-m-download-file-link),
+#cc-inner #hs-container .--hover\:bg-lime a:hover,
+#cc-inner #hs-container input.--hover\:bg-lime:hover{
     background:#CDDC39!important;
 }
 
-#cc-inner #hs-container .--hover\:bg-orange:hover:not(.cc-m-download-file-link),
-#cc-inner #hs-container .j-module .--hover\:bg-orange:hover:not(.cc-m-download-file-link),#cc-inner #hs-container .--hover\:bg-orange a:hover {
+#cc-inner #hs-container a.--hover\:bg-orange:hover:not(.cc-m-download-file-link),
+#cc-inner #hs-container .--hover\:bg-orange a:hover,
+#cc-inner #hs-container input.--hover\:bg-orange:hover{
     background:#FF9800!important;
 }
 
-#cc-inner #hs-container .--hover\:bg-brown:hover:not(.cc-m-download-file-link),
-#cc-inner #hs-container .j-module .--hover\:bg-brown:hover:not(.cc-m-download-file-link),#cc-inner #hs-container .--hover\:bg-brown a:hover {
+#cc-inner #hs-container a.--hover\:bg-brown:hover:not(.cc-m-download-file-link),
+#cc-inner #hs-container .--hover\:bg-brown a:hover,
+#cc-inner #hs-container input.--hover\:bg-brown:hover{
     background:#795548!important;
 }
+
 
 
 /*** end helper classes ***/
