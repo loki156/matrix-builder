@@ -1,9 +1,9 @@
 /*
- *  Matrix Page Builder v6.2.8
+ *  Matrix Page Builder v6.2.9
  *  Front-End Framework for Jimdo Creator websites
  *  https://www.matrix-themes.com/page-builder/
  *  Author: Serhiy Hembarevskyy
- *  Updated: 21.03.2023
+ *  Updated: 23.03.2023
  */
 
 
@@ -79,11 +79,12 @@ animateIn:!1},e.prototype.swap=function(){if(1===this.core.settings.items&&a.sup
 
 /*!
  * Scaled text for Matrix Themes
- * @version 1.0.0
+ * @version 1.0.4
  * licensed under MIT
  */
-document.addEventListener("DOMContentLoaded",(function(){const t=document.querySelectorAll(".j-text,.is-fluid,.is-scaled");function e(){t.forEach((function(t){const e=t.querySelector("span");if(e){const o=t.offsetWidth,n=parseFloat(window.getComputedStyle(e).fontSize);let i=Math.floor(o/6);i=Math.max(i,50),n>50&&(e.style.fontSize=`${i}px`)}}))}setTimeout(e,0),window.addEventListener("resize",e)}));
+document.addEventListener("DOMContentLoaded",(function(){const t=document.querySelectorAll(".j-text, .is-fluid, .is-scaled");function e(){t.forEach((function(t){const e=t.querySelectorAll("span");if(e.length>0){const o=t.offsetWidth;e.forEach((function(t){const e=parseFloat(window.getComputedStyle(t).fontSize),n=parseFloat(t.style.fontSize);let i=Math.floor(o/10);i=Math.max(i,50),e>50&&(i>n&&(i=n),t.style.fontSize=`${i}px`,t.style.wordBreak="break-word")}))}}))}setTimeout(e,0),window.addEventListener("resize",e)}));
   
+
 
 jQuery.noConflict();
 (function($) {
