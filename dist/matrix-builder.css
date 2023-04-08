@@ -1,7 +1,7 @@
 /* -------------------------------------------------------------------------------- /
 
     MATRIX PAGE BUILDER
-    VERSION: 6.2.9 (21.03.2023)
+    VERSION: 6.3.0 (08.04.2023)
     DESCRIPTION: Front-End framework for Jimdo Creator websites
     AUTHOR: Serhiy Hembarevskyy
     URI: https://www.matrix-themes.com/page-builder
@@ -30,7 +30,7 @@
   / -------------------------------------------------------------------------------- */
 
   /* jimdo image caption styles */
-#cc-inner div.caption.cc-m-image-align-2,#cc-inner .cc-imagewrapper.cc-m-image-align-2 figcaption{
+  #cc-inner div.caption.cc-m-image-align-2,#cc-inner .cc-imagewrapper.cc-m-image-align-2 figcaption{
     position:relative;
     background: transparent!important;
     font-weight:normal;
@@ -779,11 +779,6 @@ blockquote cite {
   flex: 1;
 }
 
-@media only screen  and (max-width: 745px) {
-.is-flex-block {
-  display: block;
- }
-}
 
 .half-fullwidth:after {
    content: ".";
@@ -939,7 +934,7 @@ blockquote cite {
 
   @media only screen  and (max-width: 745px) {
 .is-flex-block {
-  display:block;
+  display:block!important;
  }
 
 .is-flex-column {
@@ -1076,8 +1071,8 @@ blockquote cite {
    }
 
   .is-flex-block {
-    display:block!important;
-     }
+    /* display:block!important; */
+    }
   }
 
   /* responsive image */
@@ -1625,6 +1620,35 @@ a.hs-button.bg-white:hover{
   .link-grey a:link,.link-grey a:visited{
       color:#ccc;
   }
+
+
+  /* default theme colors */
+ .cc-matrix-active .bg-primary {
+  background: var(--bg-primary);
+}
+
+.cc-matrix-active .bg-primary-dark {
+  background: var(--bg-primary-dark);
+}
+
+.cc-matrix-active .bg-primary-light {
+  background: var(--bg-primary-light);
+}
+
+.cc-matrix-active .bg-secondary {
+  background: var(--bg-secondary);
+}
+
+.cc-matrix-active .bg-secondary-dark {
+  background: var(--bg-primary-dark);
+}
+
+
+/* button styles */
+.cc-matrix-active #cc-inner .hs-button:not(.ghost-white):not(.bg-white):not(.cd-btn.hs-button):not(.ghost-dark) {
+ background: var(--bg-btn-01);
+}
+
 
   /* default theme colors */
 .bg-primary {
@@ -2703,10 +2727,6 @@ a.hs-button.bg-white:hover{
 }
 
 /*** end cookies message ***/
-
-  .cc-box {
-    box-sizing: border-box;
-  }
 
   a.div-link {
     position:absolute;
@@ -5934,7 +5954,7 @@ ul.tabs-nav.snip-nav > li.active > a:before,
     position:absolute!important;
 }
 
-.col-12, .col-11, .col-10, .col-10, .col-9, .col-8, .col-7, .col-6, .col-5, .col-4, .col-3, .col-2, .col-1 {
+.is-fluid .col-12,.is-fluid .col-11,.is-fluid .col-10,.is-fluid .col-10,.is-fluid .col-9, .col-8,.is-fluid .col-7, .is-fluid .col-6,.is-fluid .col-5,.is-fluid .col-4, .col-3,.is-fluid .col-2,.is-fluid .col-1 {
     width: 100%!important;
  }
 }
@@ -6277,4 +6297,3 @@ font-size:14px!important;
 
 
 /*** end [06]   END UPDATES ***/
-
