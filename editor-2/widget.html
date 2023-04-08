@@ -1,4 +1,4 @@
-<var>advanced editor</var> 
+<var>matrix page editor</var> 
 <script type="text/javascript">
 //<![CDATA[
     jQuery.noConflict();  
@@ -17,30 +17,37 @@ $(document).ready(function() {
     $('var').each(function () {
             $(this).closest('.m-section').removeClass().addClass($(this).text());
         });
-   // main primary color
-      var color = $(".color1").css("background-color");
-$(".bg-primary").attr('style', 'background-color: '+ color +'!important');
-    
-    // accent light color
-     var color = $(".color2").css("background-color");
-$(".bg-primary-light,.bg-grey,.bg-gray").css("background-color",color);
-    
-    // primary dark color
-    var color = $(".color3").css("background-color");
-$(".bg-primary-dark").css("background-color",color);
-    
-    // secondary color
-    var color = $(".color4").css("background-color");
-$(".bg-secondary").css("background-color",color);
-    
-    // secondary dark color
-    var color = $(".color5").css("background-color");
-$(".bg-secondary-dark").css("background-color",color);
-   
-    // buttons
-    var color = $(".color6").css("background-color");
-    $(".hs-button:not(.ghost-white):not(.bg-white):not(.cd-btn.hs-button):not(.ghost-dark)").css("background-color",color);
-    
+// color setup
+var $color1 = $(".color1");
+var $color2 = $(".color2");
+var $color3 = $(".color3");
+var $color4 = $(".color4");
+var $color5 = $(".color5");
+var $color6 = $(".color6");
+// main primary color
+var color = $color1.css("background-color");
+document.documentElement.style.setProperty('--bg-primary', color);
+
+// primary light color
+var color = $color2.css("background-color");
+document.documentElement.style.setProperty('--bg-primary-light', color);
+
+// primary dark color
+var color = $color3.css("background-color");
+document.documentElement.style.setProperty('--bg-primary-dark', color);
+
+// secondary color
+var color = $color4.css("background-color");
+document.documentElement.style.setProperty('--bg-secondary', color);
+
+// secondary dark color
+var color = $color5.css("background-color");
+document.documentElement.style.setProperty('--bg-secondary-dark', color);
+
+// buttons
+var color = $color6.css("background-color");
+    document.documentElement.style.setProperty('--bg-btn-01', color);
+
     // body classes
     if( $('.is-boxed').length ){
      $('body').addClass('has-sidebar');
@@ -53,16 +60,8 @@ $("#cms", window.parent.document).parent().parent().parent().toggleClass("j-prev
     $('.cc-m-all-opened .is-fluid').removeAttr('data-mce-style');
     $('.j-module:has(.matrix-save)').closest('.j-hgrid').insertAfter($(".content-switcher"));
     
-});
-})(jQuery); 
-//]]>
-</script> 
-<script type="text/javascript">
-//<![CDATA[
-     jQuery.noConflict();  
-(function($) {  
-// Init 
-$(document).ready(function() {
+
+// draggable options
 $(".matrix .is-fluid").draggable({
     containment: "parent",
     stop: function () {
