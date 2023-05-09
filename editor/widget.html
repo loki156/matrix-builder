@@ -1,91 +1,98 @@
-<var>advanced editor</var> 
+<var>is-switcher</var> 
 <script type="text/javascript">
 //<![CDATA[
     jQuery.noConflict();  
 (function($) {  
 // Init 
 $(document).ready(function() { 
-    $('#cc-inner .j-hgrid').unwrap().wrap( "<div class='m-section' />" );  
-    $(".cc-m-htmlcode").hover(
-            function () {
-                $("var,ins", this).show().css("display", "block");
-            },
-            function () {
-                $("var,ins", this).hide();
-            }
-        );
-    $('var').each(function () {
-            $(this).closest('.m-section').removeClass().addClass($(this).text());
-        });
-   // main primary color
-      var color = $(".color1").css("background-color");
-$(".bg-primary").attr('style', 'background-color: '+ color +'!important');
-    
-    // accent light color
-     var color = $(".color2").css("background-color");
-$(".bg-primary-light,.bg-grey,.bg-gray").css("background-color",color);
-    
-    // primary dark color
-    var color = $(".color3").css("background-color");
-$(".bg-primary-dark").css("background-color",color);
-    
-    // secondary color
-    var color = $(".color4").css("background-color");
-$(".bg-secondary").css("background-color",color);
-    
-    // secondary dark color
-    var color = $(".color5").css("background-color");
-$(".bg-secondary-dark").css("background-color",color);
-   
-    // buttons
-    var color = $(".color6").css("background-color");
-    $(".hs-button:not(.ghost-white):not(.bg-white):not(.cd-btn.hs-button):not(.ghost-dark)").css("background-color",color);
-    
-    // body classes
-    if( $('.is-boxed').length ){
+   // define a function to set the CSS variables using cached colors
+function setColors() {
+var classes = [".color1", ".color2", ".color3", ".color4", ".color5", ".color6", ".color7"];
+
+// loop through classes and cache colors
+var colors = {};
+classes.forEach(function(className) {
+colors[className] = $(className).css("background-color");
+});
+
+// set CSS variables using cached colors
+document.documentElement.style.setProperty('--bg-primary', colors[".color1"]);
+document.documentElement.style.setProperty('--bg-primary-light', colors[".color2"]);
+document.documentElement.style.setProperty('--bg-primary-dark', colors[".color3"]);
+document.documentElement.style.setProperty('--bg-secondary', colors[".color4"]);
+document.documentElement.style.setProperty('--bg-secondary-dark', colors[".color5"]);
+document.documentElement.style.setProperty('--bg-btn-01', colors[".color6"]);
+document.documentElement.style.setProperty('--text-btn-01', colors[".color7"]);    
+
+}
+
+// apply custom background color to the new nodes
+$('.bg-custom-color').each(function(){
+var bgColor = $(this).find('span').css('color');
+$(this).parent().attr('style', 'background-color: '+ bgColor +'!important');
+   });
+
+// call setColors function initially
+setColors();
+
+// body classes
+  if( $('.is-boxed').length ){
      $('body').addClass('has-sidebar');
 }
-    // mobile switch
+
+// live preview for variables
+$('.j-hgrid').unwrap().wrap("<div class='m-section' />");
+
+$(".cc-m-htmlcode").on({
+    mouseenter: function() {
+        $(this).find("var, ins").show().css("display", "block");
+    },
+    mouseleave: function() {
+        $(this).find("var, ins").hide();
+    }
+});
+    
+// var tag
+$("var").each(function() {
+    $(this).closest('.m-section').removeClass().addClass($(this).text());
+});
+ 
+// mobile switcher
     $('.matrix-view').on('click', function(event){
       event.preventDefault();
 $("#cms", window.parent.document).parent().parent().parent().toggleClass("j-prev-phone-portrait");          
- });  
+ });        
     $('.cc-m-all-opened .is-fluid').removeAttr('data-mce-style');
-    $('.j-module:has(.matrix-save)').closest('.j-hgrid').insertAfter($(".content-switcher"));
-    
-});
-})(jQuery); 
-//]]>
-</script> 
-<script type="text/javascript">
-//<![CDATA[
-     jQuery.noConflict();  
-(function($) {  
-// Init 
-$(document).ready(function() {
+
+// draggable options
 $(".matrix .is-fluid").draggable({
-    containment: "parent",
-    stop: function () {
-        var l = ( 100 * parseFloat($(this).position().left / parseFloat($(this).parent().width())) ) + "%" ;
-        var t = ( 100 * parseFloat($(this).position().top / parseFloat($(this).parent().height())) ) + "%" ;
-        $(this).css("left", l);
-        $(this).css("top", t);
-                   
-    }
+  containment: "parent",
+  stop: function() {
+    var l = (100 * parseFloat($(this).position().left / parseFloat($(this).parent().width()))) + "%";
+    var t = (100 * parseFloat($(this).position().top / parseFloat($(this).parent().height()))) + "%";
+    $(this).css("left", l);
+    $(this).css("top", t);
+  }
+}).click(function() {
+  $(this).draggable({disabled: false});
+}).dblclick(function() {
+  $(this).draggable({disabled: true});
 });
+
 $(".matrix .is-fluid-area .is-fluid").resizable({
-    containment: "parent",        
-    autoHide: true,
-    stop: function(e, ui) {
-        var parent = ui.element.parent();
-        ui.element.css({
-            width: ui.element.width()/parent.width()*100+"%",
-            height: ui.element.height()/parent.height()*100+"%"
-        });
-    }
+  containment: "parent",
+  autoHide: true,
+  stop: function(e, ui) {
+    var parent = ui.element.parent();
+    ui.element.css({
+      width: ui.element.width() / parent.width() * 100 + "%",
+      height: ui.element.height() / parent.height() * 100 + "%"
+    });
+  }
 });
-   
-    $(".reset-btn").click(function () {  
+
+    
+$(".reset-btn").click(function () {  
 // Reset position
         // $('.cc-m-all-opened .is-fluid').removeAttr('style');
 // Destroy original draggable and create new one
@@ -96,36 +103,28 @@ $(".matrix .is-fluid-area .is-fluid").resizable({
     $(".edit-btn").click(function () {
     $(".matrix .is-fluid").draggable("destroy"); 
  }); 
-// delete-btn
+    // Use jQuery to attach the click event to the delete button
     $(".btn-delete").click(function(){
-    $(this).parent().remove();          
- });
-// copy-btn   
-    $('.btn-add').click(function () {
-    $(this).parent('.is-fluid').clone().insertAfter($(this).parent());   
- });
+        $(this).parent().remove();          
+    });
+
+$('.btn-add').click(function () {
+  var original = $(this).parent('.is-fluid');
+  var clone = original.clone();
+  clone.css({left: "+=10px", top: "+=10px"}); // adjust the position of the clone
+  clone.insertAfter(original);
+});
     
-// edit options
-$(".matrix .is-fluid").draggable()
-  .click(function() {
-    $(this).draggable( {disabled: false});
-}).dblclick(function() {
-    $(this).draggable({ disabled: true });
-});
-   // remove data-mce
-$('.is-fluid').removeAttr('data-mce-style');   
-  // custom bg color 
-     $('.bg-custom-color').each(function(){
-    var bgColor = $(this).find('span').css('color');
-       $(this).parent().attr('style', 'background-color: '+ bgColor +'!important');
-});
     
 });
 })(jQuery); 
 //]]>
-</script>
-<button class="btn btn-sm cc-m-save btn-save btn-float-left matrix-msg matrix-save invisible" data-action="save" style=
+</script> 
+
+<!-- editor buttons -->
+ <button class="btn btn-sm cc-m-save btn-save btn-float-left matrix-msg matrix-save invisible" data-action="save" style=
 "width: 32px;height: 32px;position:fixed;text-align: center;top:1px;left:35px;z-index:999999;border:1px solid transparent;padding:5px;font-size:30px;background: #1ba9e1;color: #fff;-webkit-border-radius: 2px;border-radius:4px;">
 &#160;</button><button class="btn btn-sm btn-float-left matrix-msg invisible matrix-view" style=
 "width: 32px;height: 32px;position:fixed;text-align: center;top:1px;left:69px;z-index:999999;border:1px solid transparent;padding:5px;font-size:30px;background: #1ba9e1;color: #fff;-webkit-border-radius: 2px;border-radius:4px;"
-data-action="save">&#160;</button>
+data-action="save">&#160;</button> 
+<!-- end editor buttons -->
