@@ -86,7 +86,7 @@ $(".matrix .is-fluid").draggable({
   $(this).draggable({ disabled: true });
 });
 
-$(".matrix .is-fluid-area .is-fluid,").resizable({
+$(".matrix .is-fluid-area .is-fluid").resizable({
   containment: "parent",
   autoHide: true,
   resize: function(e, ui) {
@@ -168,18 +168,15 @@ $('.btn-add').click(function () {
   var clone = original.clone();
   clone.css({left: "+=10px", top: "+=10px"}); // adjust the position of the clone
   clone.insertAfter(original);
-});
+  });
     
     
 });
 })(jQuery); 
 //]]>
-</script> 
-
-<!-- editor buttons -->
+</script> <!-- editor buttons -->
  <button class="btn btn-sm cc-m-save btn-save btn-float-left matrix-msg matrix-save invisible" data-action="save" style=
 "width: 32px;height: 32px;position:fixed;text-align: center;top:1px;left:35px;z-index:999999;border:1px solid transparent;padding:5px;font-size:30px;background: #1ba9e1;color: #fff;-webkit-border-radius: 2px;border-radius:4px;">
 &#160;</button><button class="btn btn-sm btn-float-left matrix-msg invisible matrix-view" style=
 "width: 32px;height: 32px;position:fixed;text-align: center;top:1px;left:69px;z-index:999999;border:1px solid transparent;padding:5px;font-size:30px;background: #1ba9e1;color: #fff;-webkit-border-radius: 2px;border-radius:4px;"
-data-action="save">&#160;</button> 
-<!-- end editor buttons -->
+data-action="save">&#160;</button> <!-- end editor buttons -->
