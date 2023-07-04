@@ -64,29 +64,84 @@ $("#cms", window.parent.document).parent().parent().parent().toggleClass("j-prev
  });        
     $('.cc-m-all-opened .is-fluid').removeAttr('data-mce-style');
 
-// draggable options
+// Create guide lines container
+var guideLinesContainer = $('<div class="guide-lines-container"><\/div>').appendTo(".matrix .is-fluid-area");
+
 $(".matrix .is-fluid").draggable({
   containment: "parent",
+  grid: [1, 1], // Snap to 1 pixel increments
   stop: function() {
-    var l = (100 * parseFloat($(this).position().left / parseFloat($(this).parent().width()))) + "%";
-    var t = (100 * parseFloat($(this).position().top / parseFloat($(this).parent().height()))) + "%";
+    var l = (parseFloat($(this).position().left / parseFloat($(this).parent().width()))) * 100 + "%";
+    var t = (parseFloat($(this).position().top / parseFloat($(this).parent().height()))) * 100 + "%";
     $(this).css("left", l);
     $(this).css("top", t);
+    hideGuideLines();
+  },
+  drag: function(event, ui) {
+    showGuideLines(ui.helper);
   }
 }).click(function() {
-  $(this).draggable({disabled: false});
+  $(this).draggable({ disabled: false });
 }).dblclick(function() {
-  $(this).draggable({disabled: true});
+  $(this).draggable({ disabled: true });
 });
 
-$(".matrix .is-fluid-area .is-fluid").resizable({
+$(".matrix .is-fluid-area .is-fluid,").resizable({
   containment: "parent",
+  autoHide: true,
+  resize: function(e, ui) {
+    var parent = ui.element.parent();
+    var width = ui.element.width() / parent.width() * 100 + "%";
+    var height = ui.element.height() / parent.height() * 100 + "%";
+
+    ui.element.css({
+      width: width,
+      height: height,
+      left: 0,
+      top: 0,
+    });
+    hideGuideLines();
+  },
+  start: function(event, ui) {
+    showGuideLines(ui.helper);
+  },
+  stop: function() {
+    hideGuideLines();
+  }
+});
+
+function showGuideLines(element) {
+  guideLinesContainer.empty();
+  var position = element.position();
+  var width = element.outerWidth();
+  var height = element.outerHeight();
+  var parent = element.parent();
+
+  var horizontalLine = $('<div class="guide-line-horizontal"><\/div>').css({
+    top: position.top + height / 2,
+    left: 0,
+    right: 0
+  }).appendTo(guideLinesContainer);
+
+  var verticalLine = $('<div class="guide-line-vertical"><\/div>').css({
+    left: position.left + width / 2,
+    top: 0,
+    bottom: 0
+  }).appendTo(guideLinesContainer);
+}
+
+function hideGuideLines() {
+  guideLinesContainer.empty();
+}
+
+$(".matrix .is-fluid-area").resizable({
+  handles: "s", // Only allow vertical resizing
   autoHide: true,
   stop: function(e, ui) {
     var parent = ui.element.parent();
     ui.element.css({
-      width: ui.element.width() / parent.width() * 100 + "%",
-      height: ui.element.height() / parent.height() * 100 + "%"
+      height: ui.element.height() + "px", // Use pixels for height
+      width: ui.element.width() / parent.width() * 100 + "%" // Use percentage for width
     });
   }
 });
