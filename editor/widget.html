@@ -27,14 +27,6 @@ document.documentElement.style.setProperty('--text-btn-01', colors[".color7"]);
 
 }
 
-// apply custom background color to the new nodes
-$('.bg-custom-color').each(function(){
-var bgColor = $(this).find('span').css('color');
-$(this).parent().attr('style', 'background-color: '+ bgColor +'!important');
-   });
-
-// call setColors function initially
-setColors();
 
 // body classes
   if( $('.is-boxed').length ){
@@ -64,6 +56,8 @@ $("var").each(function() {
 $("#cms", window.parent.document).parent().parent().parent().toggleClass("j-prev-phone-portrait");          
  });        
     $('.cc-m-all-opened .is-fluid').removeAttr('data-mce-style');
+    
+    
 
 // Create guide lines container
 var guideLinesContainer = $('<div class="guide-lines-container"><\/div>').appendTo(".matrix .is-fluid-area");
@@ -72,8 +66,10 @@ $(".matrix .is-fluid").draggable({
   containment: "parent",
   grid: [1, 1], // Snap to 1 pixel increments
   stop: function() {
-    var l = (parseFloat($(this).position().left / parseFloat($(this).parent().width()))) * 100 + "%";
-    var t = (parseFloat($(this).position().top / parseFloat($(this).parent().height()))) * 100 + "%";
+    var parentWidth = $(this).parent().width();
+    var parentHeight = $(this).parent().height();
+    var l = ($(this).position().left / parentWidth) * 100 + "%";
+    var t = ($(this).position().top / parentHeight) * 100 + "%";
     $(this).css("left", l);
     $(this).css("top", t);
     hideGuideLines();
@@ -81,29 +77,48 @@ $(".matrix .is-fluid").draggable({
   drag: function(event, ui) {
     showGuideLines(ui.helper);
   }
-}).click(function() {
-  $(this).draggable({ disabled: false });
-}).dblclick(function() {
-  $(this).draggable({ disabled: true });
+})
+// Disable draggable on double click
+$(".matrix .is-fluid").dblclick(function(e) {
+  // Check if the double-clicked element is not one of the border radius buttons
+  if (!$(e.target).hasClass("btn-radius-plus") && !$(e.target).hasClass("btn-radius-minus")) {
+    $(this).draggable({ disabled: true });
+  }
 });
+
+// Re-enable dragging when clicking outside of the .matrix .is-fluid
+$(document).on("click", function(e) {
+  if (!$(e.target).closest(".matrix .is-fluid").length) {
+    $(".matrix .is-fluid").draggable({ disabled: false });
+  }
+});
+
+
+
+var originalPosition; // Variable to store the original position
 
 $(".matrix .is-fluid-area .is-fluid").resizable({
   containment: "parent",
   autoHide: true,
   resize: function(e, ui) {
     var parent = ui.element.parent();
-    var width = ui.element.width() / parent.width() * 100 + "%";
-    var height = ui.element.height() / parent.height() * 100 + "%";
-
+    var width = (ui.element.width() / parent.width()) * 100 + "%"; // Use percentage for width
+    // Calculate the border width
+    var borderWidth = 4; // Adjust this value to match your actual border width
+    
+    
+    // Set the height to "auto"
     ui.element.css({
       width: width,
-      height: height,
-      left: 0,
-      top: 0,
+      height: "auto",
+      left: originalPosition.left, // Restore the original left position
+      top: originalPosition.top,   // Restore the original top position
     });
     hideGuideLines();
   },
   start: function(event, ui) {
+    // Store the original position
+    originalPosition = ui.element.position();
     showGuideLines(ui.helper);
   },
   stop: function() {
@@ -115,14 +130,7 @@ function showGuideLines(element) {
   guideLinesContainer.empty();
   var position = element.position();
   var width = element.outerWidth();
-  var height = element.outerHeight();
   var parent = element.parent();
-
-  var horizontalLine = $('<div class="guide-line-horizontal"><\/div>').css({
-    top: position.top + height / 2,
-    left: 0,
-    right: 0
-  }).appendTo(guideLinesContainer);
 
   var verticalLine = $('<div class="guide-line-vertical"><\/div>').css({
     left: position.left + width / 2,
@@ -135,6 +143,7 @@ function hideGuideLines() {
   guideLinesContainer.empty();
 }
 
+// resizable fluid area
 $(".matrix .is-fluid-area").resizable({
   handles: "s", // Only allow vertical resizing
   autoHide: true,
@@ -146,6 +155,93 @@ $(".matrix .is-fluid-area").resizable({
     });
   }
 });
+// mask shapes
+    $(".matrix .mask-section").resizable({
+  containment: "parent",
+  autoHide: true,
+  resize: function(e, ui) {
+    var parent = ui.element.parent();
+    var width = (ui.element.width() + borderWidth) / parent.width() * 100 + "%"; // Use percentage for width
+    var height = ui.element.height() / parent.height() * 100 + "%";
+// Calculate the border width
+    var borderWidth = 4; // Adjust this value to match your actual border width
+    ui.element.css({
+      width: width,
+      height: height,
+      left: 0,
+      top: 0,
+    });
+      hideGuideLines();
+  },
+  start: function(event, ui) {
+    showGuideLines(ui.helper);
+  },
+  stop: function() {
+    hideGuideLines();
+  }
+});
+// fluid resizable image
+  $(".matrix .fluid-img").resizable({
+  containment: "parent",
+  autoHide: true,
+  aspectRatio: false,
+  resize: function (e, ui) {
+    var parent = ui.element.parent();
+     var width = (ui.element.width() + borderWidth) / parent.width() * 100 + "%"; // Use percentage for width
+    var height = ui.element.height() / parent.height() * 100 + "%";
+// Calculate the border width
+    var borderWidth = 4; // Adjust this value to match your actual border width
+   
+    ui.element.css({
+      width: width,
+      height: height,
+      left: originalPosition.left, // Restore the original left position
+      top: originalPosition.top,   // Restore the original top position
+    });
+
+    hideGuideLines();
+    
+    // Calculate and set background-position based on resizing
+    var bgX = (ui.position.left / ui.size.width * 100) + "%";
+    var bgY = (ui.position.top / ui.size.height * 100) + "%";
+    ui.element.css('background-position', bgX + ' ' + bgY);
+  },
+  start: function (event, ui) {
+      // Store the original position
+    originalPosition = ui.element.position();
+    showGuideLines(ui.helper);
+  },
+  stop: function () {
+    hideGuideLines();
+  },
+});
+    
+    // define the mutation observer
+var observer = new MutationObserver(function(mutations) {
+mutations.forEach(function(mutation) {
+// check if any new nodes were added
+if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
+// apply the custom styles to the new nodes
+setColors();
+
+// apply custom background color to the new nodes
+$('.bg-custom-color').each(function(){
+var bgColor = $(this).find('span').css('color');
+$(this).parent().attr('style', 'background-color: '+ bgColor +'!important');
+   });
+ }
+ });
+});
+
+// observe changes to the body element
+observer.observe(document.body, {
+    
+childList: true,
+subtree: true
+});
+
+// call setColors function initially
+setColors();
 
     
 $(".reset-btn").click(function () {  
@@ -167,10 +263,19 @@ $(".reset-btn").click(function () {
 $('.btn-add').click(function () {
   var original = $(this).parent('.is-fluid');
   var clone = original.clone();
+
+  // Check if the original element has the class .is-rel and remove it from the clone
+  if (original.hasClass('is-rel')) {
+    clone.removeClass('is-rel');
+  }
+
   clone.css({left: "+=10px", top: "+=10px"}); // adjust the position of the clone
   clone.insertAfter(original);
 });
+
     
+   // remove data-mce
+$('.is-fluid').removeAttr('data-mce-style');  
     
 });
 })(jQuery); 
