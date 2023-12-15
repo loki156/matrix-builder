@@ -1,14 +1,6 @@
 <var>is-switcher</var> 
 <script type="text/javascript">
 
-
-
-
-
-
-
-
-
 //<![CDATA[
     jQuery.noConflict();  
 (function($) {  
@@ -35,6 +27,34 @@ document.documentElement.style.setProperty('--text-btn-01', colors[".color7"]);
 
 }
 
+$('.config10').each(function() {
+    var $this = $(this);
+
+    if ($this.hasClass('config10')) {
+        var cssContent = $this.find('p').map(function() {
+            return $(this).text().trim();
+        }).get().join('');
+
+        // Removing multiple space occurrences (including non-breaking spaces)
+        cssContent = cssContent.replace(/\s+/g, ' ').trim();
+
+        // Find the previously added style tag and remove it if CSS content is empty
+        var existingStyleTag = $('style[data-type="custom-css"]');
+        if (existingStyleTag.length > 0 && !cssContent) {
+            existingStyleTag.remove();
+        } else {
+            // Remove the previous style tag before appending a new one
+            existingStyleTag.remove();
+
+            // Append the new style tag with the updated CSS content
+            $('head').append('<style data-type="custom-css">' + cssContent + '<\/style>');
+        }
+    } else {
+        var text = $this[0].textContent.trim(); // Extract text content without <p> tags
+        var classNames = text.replace(/\s+/g, ' ').trim().split(' ');
+    }
+});
+
 
 // body classes
   if( $('.is-boxed').length ){
@@ -52,6 +72,7 @@ $(".cc-m-htmlcode").on({
         $(this).find("var, ins").hide();
     }
 });
+    
     
 // var tag
 $("var").each(function() {
