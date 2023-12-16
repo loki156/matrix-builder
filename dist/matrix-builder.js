@@ -1,9 +1,9 @@
 /*
- *  Matrix Page Builder v6.4.0
+ *  Matrix Page Builder v6.5.0
  *  Front-End Framework for Jimdo Creator websites
  *  https://www.matrix-themes.com/page-builder/
  *  Author: Serhiy Hembarevskyy
- *  Updated: 17.10.2023
+ *  Updated: 15.12.2023
  */
 
 
@@ -134,6 +134,26 @@ tds.forEach(function(td) {
   });
 });
 
+const ccConfigElements = document.querySelectorAll('.cc-config');
+
+  ccConfigElements.forEach(ccConfigElement => {
+    ccConfigElement.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        const selection = window.getSelection();
+        const range = selection.getRangeAt(0);
+        const br = document.createElement("br");
+        range.deleteContents();
+        range.insertNode(br);
+        range.setStartAfter(br);
+        range.setEndAfter(br);
+        range.collapse(false);
+        selection.removeAllRanges();
+        selection.addRange(range);
+        return false;
+      }
+    });
+  });
 
 
 // Border radius function for fluid sections
@@ -262,7 +282,7 @@ if (document.documentElement.innerHTML.includes('matrix-save')) {
   document.body.classList.add('cc-matrix-active');
 }  
 // admin menu
-$( '<a href="#0" class="cd-btn"><\/a><div class="cd-panel from-left"> <header class="cd-panel-header link-white"> <span><a style="text-decoration: none!important;" href="https://www.matrix-themes.com/page-builder/dashboard/" target="iframe-holder">Matrix Builder<\/a><\/span> <a href="#0" class="cd-panel-close">Close<\/a> <\/header> <div class="cd-panel-container rel"> <div class="cd-panel-content hs-left col-4"> <div class="invisibleh"> <a class="mt" href="https://www.matrix-themes.com/page-builder/docs" target="iframe-holder">Documentation<\/a> <a class="mt" href="https://www.matrix-themes.com/page-builder/helper-classes" target="iframe-holder">Helper classes<\/a> <a class="mt" href="https://www.matrix-themes.com/page-builder/widgets" target="iframe-holder">Widgets<\/a><a class="popup-vimeo mt" href="https://cms.e.jimdo.com/app/siteadmin/layout/api/" target="iframe-holder">Custom layout<\/a> <a class="mt is-locked" href="https://www.matrix-themes.com/page-builder/block-elements" target="iframe-holder">Block elements<\/a> <a class="mt is-locked" href="https://www.matrix-themes.com/page-builder/add-ons" target="iframe-holder">Add ons<\/a> <a class="mt is-locked" href="https://www.matrix-themes.com/page-builder/fluid-sections" target="iframe-holder">Fluid sections<\/a><a class="mt" href="https://www.matrix-themes.com/support" target="iframe-holder">Support<\/a> <a class="mt is-upgrade-btn weight-600" href="https://www.matrix-themes.com/page-builder/upgrade" target="iframe-holder">Upgrade<\/a> <\/div><\/div><div class="hs-left" style="padding: 50px 0px 0 0px;height:100%;width: auto;overflow:hidden;"> <div class="cc-box"> <iframe name="iframe-holder" id="iframe-holder" class="" style="height:100%;box-sizing: border-box;display: block;"><\/iframe> <\/div><\/div><\/div><\/div>' ).insertAfter( "#cc-inner" );
+$( '<a href="#0" class="cd-btn"><\/a><div class="cd-panel from-left"> <header class="cd-panel-header link-white"> <span><a style="text-decoration: none!important;" href="https://www.matrix-themes.com/docs" target="iframe-holder">Matrix Builder<\/a><\/span> <a href="#0" class="cd-panel-close">Close<\/a> <\/header> <div class="cd-panel-container rel"> <div class="cd-panel-content hs-left col-4"> <div class="invisibleh"> <a class="mt" href="https://www.matrix-themes.com/page-builder/docs" target="iframe-holder">Documentation<\/a><a class="mt" href="https://www.matrix-themes.com/page-builder/style-editor" target="iframe-holder">Style Editor<\/a> <a class="mt" href="https://www.matrix-themes.com/page-builder/widgets" target="iframe-holder">Widgets<\/a> <a class="mt is-locked" href="https://www.matrix-themes.com/page-builder/block-elements" target="iframe-holder">Block elements<\/a> <a class="mt is-locked" href="https://www.matrix-themes.com/page-builder/add-ons" target="iframe-holder">Add ons<\/a> <a class="mt is-locked" href="https://www.matrix-themes.com/page-builder/fluid-sections" target="iframe-holder">Fluid sections<\/a><a class="mt" href="https://www.matrix-themes.com/page-builder/design-kits" target="iframe-holder">Design kits<\/a><a class="mt" href="https://www.matrix-themes.com/page-builder/helper-classes" target="iframe-holder">Helper classes<\/a> <a class="popup-vimeo mt" href="https://cms.e.jimdo.com/app/siteadmin/layout/api/" target="iframe-holder">Custom layout<\/a><a class="mt" href="https://www.matrix-themes.com/support/marketplace" target="iframe-holder">Marketplace<\/a><a class="mt is-locked" href="https://www.matrix-themes.com/support/updates" target="iframe-holder">Source files<\/a><a class="mt is-locked" href="https://www.matrix-themes.com/support/help" target="iframe-holder">Support<\/a> <a class="mt is-upgrade-btn weight-600" href="https://www.matrix-themes.com/pricing" target="iframe-holder">Upgrade<\/a> <\/div><\/div><div class="hs-left" style="padding: 50px 0px 0 0px;height:100%;width: auto;overflow:hidden;"> <div class="cc-box"> <iframe name="iframe-holder" id="iframe-holder" class="" style="height:100%;box-sizing: border-box;display: block;"><\/iframe> <\/div><\/div><\/div><\/div>' ).insertAfter( "#cc-inner" );
 $( '<div class="wrap-collabsible admin-only"><input id="collapsible" class="toggle" type="checkbox"/> <label for="collapsible" class="mtx-toggle"> <\/label><div class="collapsible-content"><div class="content-inner"><div class="inner style-switcher is-draggable"><div class="content-switcher is-draggable"><\/div><\/div><\/div> <\/div><\/div>' ).insertAfter( "#cc-inner" );
 // lazy load
 var viewPortHeight = $(window).height();
