@@ -1,7 +1,7 @@
 /* -------------------------------------------------------------------------------- /
 
     MATRIX PAGE BUILDER
-    VERSION: 6.5.0 (15.12.2023)
+    VERSION: 6.5.1 (20.12.2023)
     DESCRIPTION: Front-End framework for Jimdo Creator websites
     AUTHOR: Serhiy Hembarevskyy
     URI: https://www.matrix-themes.com/page-builder
@@ -7065,6 +7065,11 @@ ul.tabs-nav.snip-nav>li.active>a:before,
   display:block;
 }
 
+.is-switcher .cc-m-all-drag-handle-icon.icon-move:before {
+  content: "";
+}
+
+
 .is-switcher .j-sharebuttons {
   opacity:0;
 }
@@ -7258,7 +7263,7 @@ ul.tabs-nav.snip-nav>li.active>a:before,
     transition: all 0.25s ease-out;
 }
 
-.matrix .mtx-toggle {
+.cc-matrix-active .mtx-toggle {
   display:block;
 }
   
@@ -7387,6 +7392,42 @@ ul.tabs-nav.snip-nav>li.active>a:before,
       cursor: help;
       padding: 4px;
   }
+
+.cc-matrix-active .is-switcher button.btn-sm.matrix-msg {
+  width: 32px;
+  height: 32px;
+  position:fixed;
+  text-align: center;
+  top:1px;
+  left:1px;
+  z-index:999999;
+  border:1px solid transparent;
+  padding:5px;
+  font-size:30px;
+  background: #1ba9e1;
+  color: #fff;
+  -webkit-border-radius: 2px;
+  border-radius:4px;
+ }
+
+button.btn-sm.matrix-save,
+button.btn-sm.matrix-view {
+  display:none;
+}
+
+.collapsible-content button.btn-sm.matrix-save,
+.collapsible-content button.btn-sm.matrix-view {
+  display:block;
+}
+
+.cc-matrix-active .is-switcher button.btn-sm.matrix-save {
+  left:35px;
+}
+
+.cc-matrix-active .is-switcher button.btn-sm.matrix-view {
+  left:69px;
+  
+}
   
   /* Tooltip styling */
   [data-tooltip]:before {
