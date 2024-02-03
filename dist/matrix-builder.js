@@ -1,9 +1,9 @@
 /*
- *  Matrix Page Builder v6.5.0
+ *  Matrix Page Builder v6.5.2
  *  Front-End Framework for Jimdo Creator websites
  *  https://www.matrix-themes.com/page-builder/
  *  Author: Serhiy Hembarevskyy
- *  Updated: 15.12.2023
+ *  Updated: 22.01.2024
  */
 
 
@@ -267,6 +267,49 @@ function openBackgroundImageURLPopup(button) {
   }
 }
  
+// Function to handle equal heights for a specific section
+function handleEqualHeights(section) {
+  var divs = section.querySelectorAll('.is-equal');
+
+  // Reset heights to auto to recalculate
+  divs.forEach(function (div) {
+      div.style.height = 'auto';
+  });
+
+  // Calculate the maximum height
+  var maxHeight = 0;
+  divs.forEach(function (div) {
+      maxHeight = Math.max(maxHeight, div.offsetHeight);
+  });
+
+  // Set the same height for all divs in the section
+  divs.forEach(function (div) {
+      div.style.height = maxHeight + 'px';
+  });
+}
+
+// equal heights
+function handlePageLoad() {
+  // Get all sections with the common class .equal-section
+  var sections = document.querySelectorAll('.j-hgrid');
+
+  // Loop through each section and apply the equal heights logic
+  sections.forEach(function (section) {
+      handleEqualHeights(section);
+  });
+}
+
+// Run the script after the DOM has fully loaded
+document.addEventListener('DOMContentLoaded', function () {
+  handlePageLoad();
+});
+
+// Run the script again after the page has fully loaded (including images and other resources)
+window.addEventListener('load', function () {
+  handlePageLoad();
+});
+
+
 
 
 
@@ -431,38 +474,97 @@ $(window).enllax();
 $('.jarallax').jarallax({
   speed: 0.2,
 });
-// toggles
-$('div.toggle > div.content').hide();
-  $('div.toggle > a.switch.opened').next().show();
-    $('div.toggle > a.switch').click(function() {
-       $(this).toggleClass('opened').next().slideToggle('fast');
-        return false;
-   });
-// accordeon
-$('.accordeon_content').hide();
-$('.accordeon_title').click(function(){
-  $(this).parent().toggleClass('active').siblings().removeClass('active');
-    $('.accordeon_content').slideUp();
-    if(!$(this).next().is(":visible")) {
+// Initial hiding of toggle content
+$('.toggle .content').hide();
+
+// Click event for toggle switch using event delegation
+$(document).on('click', '.toggle .switch', function() {
+  const $toggleContent = $(this).next('.content');
+
+  // Toggle opened class and slideToggle the content
+  $(this).toggleClass('opened');
+  $toggleContent.slideToggle('fast');
+
+  // If the switch is opened, trigger the observer for the specific content
+  if ($(this).hasClass('opened')) {
+    observer.observe($toggleContent[0], { attributes: true, childList: true, subtree: true });
+  } else {
+    observer.disconnect();
+  }
+
+  return false;
+});
+
+// Function to initialize tabs
+function initializeTabs() {
+  $('ul.tabs-nav > li:first-child').addClass('active');
+  $('div.tab-content').hide();
+  $('div.tab-content:first-child').show();
+}
+
+// Click event for tabs using event delegation
+$(document).on('click', 'ul.tabs-nav a', function() {
+  var nav = $(this).parent().parent('ul.tabs-nav');
+  if (!$(this).parent().hasClass('active')) {
+    $('> li', nav).removeClass('active');
+    $(this).parent().addClass('active');
+    var target = $(this).attr('href');
+    var container = $('div.tabs-container').has(target);
+    $('> .tab-content', container).hide();
+    $(target, container).fadeIn();
+
+    // Trigger the observer for the clicked tab content
+    observer.observe($(target, container)[0], { attributes: true, childList: true, subtree: true });
+  }
+
+  return false;
+});
+
+// Mutation Observer
+const observer = new MutationObserver((mutations) => {
+  mutations.forEach((mutation) => {
+    // Handle the mutation here, e.g., check if the content is visible
+    if ($(mutation.target).is(':visible')) {
+      // console.log('Observer detected immediate change!');
+      // Add your observer-specific code here
+    }
+  });
+});
+
+// Initialize tabs when the page loads
+initializeTabs();
+// accordion
+    $('.accordeon_content').hide();
+    $('.accordeon_title').click(function() {
+      $(this).parent().toggleClass('active').siblings().removeClass('active');
+      $('.accordeon_content').slideUp();
+      if (!$(this).next().is(":visible")) {
         $(this).next().slideDown();
       }
-  });
-// tabs
-$('ul.tabs-nav > li:first-child').addClass('active');
-   $('div.tab-content').hide();
-   $('div.tab-content:first-child').show();
-     $('ul.tabs-nav a').click(function() {
-       var nav = $(this).parent().parent('ul.tabs-nav');
-       if (!$(this).parent().hasClass('active')) {
-        $('> li', nav).removeClass('active');
-        $(this).parent().addClass('active');
-          var target = $(this).attr('href');
-          var container = $('div.tabs-container').has(target);
-          $('> .tab-content', container).hide();
-          $(target, container).fadeIn();
-        }
-    return false;
-  });
+    });
+// add dynamically content inside the custom tabs 
+ // Define the number of tabs
+ var numTabs = 10;
+
+ // Loop through each tab
+ for (var i = 1; i <= numTabs; i++) {
+     var contentSelector = '.content-tab-' + i;
+     var customTabSelector = '.custom-tab-' + i;
+
+     // Clone the content and append it to the corresponding custom tab
+     $(contentSelector).appendTo($(customTabSelector)).clone();
+ }
+
+  // wow
+wow = new WOW(
+  {
+    boxClass:     'wow',
+    animateClass: 'animate__animated',
+    mobile:       true,
+    offset:       100
+  }
+)
+wow.init();
 
 });
 })(jQuery);
