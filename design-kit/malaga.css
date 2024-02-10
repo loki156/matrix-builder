@@ -124,3 +124,7 @@
     max-width: 1170px;
     margin:0 auto;
 }
+
+.j-nav-level-0 .j-nav-current>a:link, .j-nav-level-0 .j-nav-current>a:visited, .j-nav-level-0 .j-nav-parent>a:link, .j-nav-level-0 .j-nav-parent>a:visited, .j-nav-level-0 a:active, .j-nav-level-0 a:focus, .j-nav-level-0 a:hover {
+    background-color: #f0f0f0;
+}
