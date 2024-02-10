@@ -6,7 +6,6 @@
 
 .jtpl-section-main {
     margin: 85vh auto 0;
-    background:#fff;
     max-width:inherit!important;
 }
 
@@ -117,6 +116,11 @@
    left: -100%!important;
 }
 
-.jtpl-breadcrumb, .jtpl-content,.jtpl-section-aside__inner, .jtpl-footer__inner, .jtpl-header__inner, .jtpl-sidebar__inner  {
+.jtpl-breadcrumb,.jtpl-section-aside__inner, .jtpl-footer__inner, .jtpl-header__inner, .jtpl-sidebar__inner  {
    max-width: 1170px;
+}
+
+#content_area {
+    max-width: 1170px;
+    margin:0 auto;
 }
