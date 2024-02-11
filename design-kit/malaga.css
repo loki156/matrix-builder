@@ -47,7 +47,6 @@
     background:transparent!important;
     padding: 0!important;
     margin: 3px 20px!important;
-    color:inherit!important;
 }
 
 .jtpl-navigation .j-nav-variant-nested * {
@@ -123,8 +122,4 @@
 #content_area {
     max-width: 1170px;
     margin:0 auto;
-}
-
-.j-nav-level-0 .j-nav-current>a:link, .j-nav-level-0 .j-nav-current>a:visited, .j-nav-level-0 .j-nav-parent>a:link, .j-nav-level-0 .j-nav-parent>a:visited, .j-nav-level-0 a:active, .j-nav-level-0 a:focus, .j-nav-level-0 a:hover {
-    background-color: #f0f0f0;
 }
