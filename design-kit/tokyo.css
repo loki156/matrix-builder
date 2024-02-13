@@ -1,0 +1,85 @@
+/*** Design kit for Tokyo template ***/
+.jtpl-navigation li.jmd-nav__list-item-0 {
+  margin:5px 0;
+  padding:0;
+}
+ .jtpl-navigation li.jmd-nav__list-item-0> a,.jtpl-navigation .onepager a {
+  background:transparent!important;
+  padding: 0!important;
+  margin: 3px 20px!important;
+}
+
+.j-nav-level-0 .j-nav-current>a:link, .j-nav-level-0 .j-nav-current>a:visited, .j-nav-level-0 .j-nav-parent>a:link,.j-nav-level-0 .j-nav-parent>a:visited, .j-nav-level-0 a:active, .j-nav-level-0 a:focus, .j-nav-level-0 a:hover {
+  border-bottom:none;
+}
+
+.jtpl-navigation .j-nav-variant-nested * {
+  box-sizing: border-box;
+}
+
+.jtpl-navigation .j-nav-variant-nested a {
+  padding: 0.2em 0;
+  position: relative;
+}
+
+.jtpl-navigation .j-nav-variant-nested a:before,
+.jtpl-navigation .j-nav-variant-nested a:after {
+  position: absolute;
+  -webkit-transition: all 0.35s ease;
+  transition: all 0.35s ease;
+}
+
+.jtpl-navigation .j-nav-variant-nested a:before {
+  bottom: 0;
+  display: block;
+  height: 2px;
+  width: 0%;
+  content: "";
+  background-color: currentColor;
+}
+
+.jtpl-navigation .j-nav-variant-nested ul li ul a:before {
+  height: 0px;
+    
+}
+
+.jtpl-navigation .j-nav-variant-nested a:after {
+  left: 0;
+  top: 0;
+  padding: 0.5em 0;
+  position: absolute;
+  content: attr(data-hover);
+  color: currentColor;
+  white-space: nowrap;
+  max-width: 0%;
+  overflow: hidden;
+}
+
+.jtpl-navigation .j-nav-variant-nested a:hover:before,
+.jtpl-navigation .j-nav-variant-nested .current a:before,
+.jtpl-navigation .j-nav-variant-nested ul li.cc-nav-current>a:before,
+.jtpl-navigation .j-nav-variant-nested ul li.cc-nav-parent>a:before {
+  opacity: 1;
+  width: 100%;
+}
+
+.jtpl-navigation .j-nav-variant-nested a:hover:after,
+.jtpl-navigation .j-nav-variant-nested .current a:after {
+  max-width: 100%;
+}
+
+
+#cc-inner .jtpl-navigation  .jtpl-navigation .j-nav-level-2 {
+  left: -100%!important;
+}
+
+.jtpl-topbar-section,.jtpl-subnavigation .jtpl-subnavigation__inner-nav2,.jtpl-subnavigation .j-nav-level-1, .jtpl-subnavigation .j-nav-level-2, .jtpl-content__inner, .jtpl-footer__inner, .jtpl-header__inner, .jtpl-sidebar__inner  {
+  max-width: 1170px;
+}
+
+.jtpl-subnavigation .j-nav-level-1 li:last-child, .jtpl-subnavigation .j-nav-level-2 li:last-child {
+ margin-right:0;
+}
+.jtpl-subnavigation .j-nav-level-2 a:link, .jtpl-subnavigation .j-nav-level-2 a:visited {
+ font-size:95%;
+}
