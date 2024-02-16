@@ -53,7 +53,7 @@ $(document).ready(function() {
 }
 
 .jtpl-mobile-navigation .jmd-nav__toggle-button {
-    border-radius:4px;
+    border-radius:0;
 }
  
 .jtpl-section-aside,
@@ -69,6 +69,11 @@ $(document).ready(function() {
 .jtpl-navigation {
     box-shadow: none;
     padding: 20px;
+}
+
+.jmd-nav__list-item-0:last-child ul.cc-nav-level-1 {
+    right:0;
+    left:auto;
 }
 .jtpl-navigation li.jmd-nav__list-item-0 > a {
     background: 0 0 !important;
@@ -132,7 +137,7 @@ $(document).ready(function() {
     transform: none;
     -ms-transform-origin: 0 0;
     transform-origin: 0 0;
-    transform-style: none;
+    transform-style: unset;
 }
 .j-website-title-content:not(:empty):after,
 .j-website-title-content:not(:empty):before {
