@@ -1,7 +1,11 @@
+
 /*** Design kit for Malaga template ***/
 .jtpl-header {
     -webkit-box-shadow: 0px 0px 18px 1px rgb(0 0 0 / 10%);
     box-shadow: 0px 0px 18px 1px rgb(0 0 0 / 10%);
+}
+.matrix .jtpl-header {
+    position:relative;
 }
 
 .jtpl-section-main {
@@ -24,7 +28,7 @@
     max-width: 1170px;
 }
 
-.jtpl-navigation .j-nav-level-1, .jtpl-navigation .j-nav-level-2 {
+#cc-inner .j-nav-level-1,#cc-inner  .j-nav-level-2 {
     box-shadow: 0 7px 11px 0 rgba(0,0,0,.2);
     border: 0px solid #aaa;
     border: 0px solid rgba(0,0,0,.1);
@@ -38,34 +42,34 @@
     top: -1px;
 }
 
-.jtpl-navigation li.jmd-nav__list-item-0 {
+li.jmd-nav__list-item-0 {
     margin:5px 0;
     padding:0;
 }
 
-.jtpl-navigation li.jmd-nav__list-item-0> a,.jtpl-navigation__inner .onepager a {
+li.jmd-nav__list-item-0> a,.onepager a {
     background:transparent!important;
     padding: 0!important;
-    margin: 3px 20px!important;
+    margin: 20px!important;
 }
 
 .jtpl-navigation .j-nav-variant-nested * {
     box-sizing: border-box;
 }
 
-.jtpl-navigation .j-nav-variant-nested a {
+.j-nav-variant-nested a {
     padding: 0.2em 0;
     position: relative;
 }
 
-.jtpl-navigation .j-nav-variant-nested a:before,
-.jtpl-navigation .j-nav-variant-nested a:after {
+.j-nav-variant-nested a:before,
+.j-nav-variant-nested a:after {
     position: absolute;
     -webkit-transition: all 0.35s ease;
     transition: all 0.35s ease;
 }
 
-.jtpl-navigation .j-nav-variant-nested a:before {
+.j-nav-variant-nested a:before {
    content: '';
    position: absolute;
    width: 100%;
@@ -79,11 +83,11 @@
    transition: transform 0.4s cubic-bezier(0.86, 0, 0.07, 1);
 }
 
-.jtpl-navigation .j-nav-variant-nested ul li ul a:before {
+.j-nav-variant-nested ul li ul a:before {
    height: 0px;   
 }
 
-.jtpl-navigation .j-nav-variant-nested a:after {
+.j-nav-variant-nested a:after {
    left: 0;
    top: 0;
    padding: 0.5em 0;
@@ -95,18 +99,18 @@
    overflow: hidden;
 }
 
-.jtpl-navigation .j-nav-variant-nested a:hover:before,
-.jtpl-navigation .j-nav-variant-nested .current a:before,
-.jtpl-navigation .j-nav-variant-nested ul li.cc-nav-current>a:before,
-.jtpl-navigation .j-nav-variant-nested ul li.cc-nav-parent>a:before {
+.j-nav-variant-nested a:hover:before,
+.j-nav-variant-nested .current a:before,
+.j-nav-variant-nested ul li.cc-nav-current>a:before,
+.j-nav-variant-nested ul li.cc-nav-parent>a:before {
    opacity: 1;
    width: 100%;
    transform: scaleX(1);
    transform-origin: bottom left;
 }
 
-.jtpl-navigation .j-nav-variant-nested a:hover:after,
-.jtpl-navigation .j-nav-variant-nested .current a:after {
+.j-nav-variant-nested a:hover:after,
+.j-nav-variant-nested .current a:after {
    max-width: 100%;
 }
 
@@ -117,6 +121,10 @@
 
 .jtpl-breadcrumb,.jtpl-section-aside__inner, .jtpl-footer__inner, .jtpl-header__inner, .jtpl-sidebar__inner  {
    max-width: 1170px;
+}
+.inner {
+    width:100%;
+    max-width:1170px;
 }
 
 #content_area {
