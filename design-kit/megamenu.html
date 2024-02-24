@@ -1,0 +1,82 @@
+<script type="text/javascript">
+//<![CDATA[
+     jQuery.noConflict();
+(function($) {
+// Init
+$(document).ready(function() {
+// mega-menu
+    $('.j-nav-variant-nested > ul > li:has( > ul)').addClass('mega-sub');
+    $('.j-nav-variant-nested > ul > li > ul:not(:has(ul))').addClass('normal-sub');
+});
+})(jQuery);
+//]]>
+</script>
+<style>
+/* <![CDATA[ */
+/*** Design kit for Rome template with megamenu ***/
+  
+.jtpl-navigation li,.jtpl-navigation{
+    position:unset;
+}
+  
+#cc-inner .jtpl-navigation .j-nav-has-children>ul {
+    width: calc(100% - 20px);
+    min-width:calc(100% - 20px);
+    max-width:calc(100% - 20px);
+    background: #fff;
+    box-shadow: 0 7px 18px 0 rgb(0 0 0 / 10%);
+    padding: 10px;
+    margin:0 10px;
+    border-radius: 4px;
+    position: absolute;
+    z-index: 203001;
+    left: 0px;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+#cc-inner .jtpl-navigation .j-nav-has-children ul ul {
+    box-shadow:none;
+}
+
+#cc-inner .jtpl-navigation .j-nav-has-children>ul.normal-sub {
+    width: 200px;
+    min-width:200px;
+    left: auto;
+}
+
+#cc-inner .jtpl-navigation .j-nav-has-children>ul.normal-sub li {
+    width:100%;
+}
+
+#cc-inner .jtpl-navigation .mega-sub>ul>li {
+    width: 25%;
+    float: left;
+}
+
+#cc-inner .jtpl-navigation .mega-sub>ul>li a {
+    margin:5px;
+    background:transparent;
+}
+
+
+#cc-inner .jtpl-navigation .mega-sub>ul>li>ul,.jtpl-navigation .j-nav-level-2 {
+    display: block;
+    padding: 0;
+    margin: 10px 0 0;
+    list-style: none;
+    box-sizing: border-box;
+    position:relative;
+}
+
+.jtpl-navigation .j-nav-level-1{
+    min-width: 100%;
+    max-width: 100%;
+}
+
+#cc-inner .cc-nav-level-2.j-nav-level-2 a {
+    font-size:85%;
+}
+  
+/*]]>*/
+</style>
