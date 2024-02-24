@@ -1,5 +1,5 @@
-
 /*** Design kit for Rome template ***/
+
 .jtpl-navigation .j-nav-level-1 {
     border-bottom: none;
     box-shadow: none;
@@ -26,7 +26,10 @@
    background:transparent!important;
    padding: 0!important;
    margin: 3px 20px!important;
-   letter-spacing: 0;
+}
+
+.jtpl-mobile-navigation a:link, .jtpl-mobile-navigation a:visited, .jtpl-navigation a:link, .jtpl-navigation a:visited,.j-website-title-content{
+   letter-spacing:.1px;
 }
 
 .jtpl-navigation__inner .j-nav-variant-nested * {
@@ -83,12 +86,14 @@
 .jtpl-breadcrumb .jtpl-breadcrumb__navigation{
     height:auto;
 }
+
 .jtpl-breadcrumb {
     width:100%;
     top:0;
 }
 
-.jtpl-breadcrumb__title-navigation-gutter:before {
+.jtpl-breadcrumb__title-navigation-gutter:before,
+.jtpl-breadcrumb__inner.flex-background-options{
     background-color: transparent;
     height:auto;
 }
@@ -126,10 +131,14 @@
     width:100%;
     position:relative;
 }
+
 @media (max-width: 767px){
 .j-module .j-website-title-content{
    font-size:16px!important;
 }
+ #cc-inner .jtpl-header--image,#cc-inner .jtpl-background-area {
+    height: 60vh;
+ }
 }
 
 .j-website-title-content {
@@ -139,16 +148,17 @@
     overflow: hidden;
 }
 
-.jtpl-header {
+.jtpl-header__ {
     position:relative;
 }
 
 .jtpl-header__inner{
     width:100%;
     max-width:100%;
+    padding:0 10px;
 }
 .jtpl-header--image,.jtpl-background-area {
-    height: 60vh;
+    height: 70vh;
 }
 
 .jtpl-breadcrumb,.jtpl-content, .jtpl-footer__inner, .jtpl-sidebar__inner  {
