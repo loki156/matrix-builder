@@ -15,7 +15,8 @@ $(document).ready(function() {
 /* <![CDATA[ */
 /*** Design kit for Miami template ***/
 #cc-inner .jtpl-logo {
-    margin: 0 5px;
+    margin: 0;
+    text-align:left;
 }
 
 #cc-inner .jtpl-logo a{
@@ -27,19 +28,37 @@ $(document).ready(function() {
     width:auto;
 }
 
+.navigation-alignment {
+    text-align:right;
+}
+
+@media (max-width: 768px){
+.navigation-alignment{
+    text-align:left;
+  }
+}
+
 #cc-inner .jtpl-navigation {
     position:relative;
-    padding:7px 0;
+    padding: 20px;
+    box-sizing: border-box;
     height:auto;
 }
 
 #cc-inner .jtpl-header {
     padding: 150px 10px;
+    min-height:70vh;
 }
 
 #cc-inner .jtpl-navigation__inner{
     margin-top:0;
     max-width:unset;
+    border-bottom:none;
+}
+
+.jmd-nav__list-item-0:last-child ul.cc-nav-level-1 {
+    right:0;
+    left:auto;
 }
 
 #cc-inner .jtpl-navigation__inner .j-nav-level-0 {
@@ -53,7 +72,7 @@ $(document).ready(function() {
 }
 
 .jtpl-content__inner,.jtpl-breadcrumb, .jtpl-footer__inner, .jtpl-header__inner, .jtpl-sidebar__inner  {
-  max-width: 1170px;
+    max-width: 1170px;
 }
 /*]]>*/
 </style>
