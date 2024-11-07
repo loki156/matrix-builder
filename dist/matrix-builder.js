@@ -1,9 +1,9 @@
 /*
- *  Matrix Page Builder v6.5.2
+ *  Matrix Page Builder v6.5.3
  *  Front-End Framework for Jimdo Creator websites
  *  https://www.matrix-themes.com/page-builder/
  *  Author: Serhiy Hembarevskyy
- *  Updated: 22.01.2024
+ *  Updated: 07.11.2024
  */
 
 
@@ -310,6 +310,65 @@ window.addEventListener('load', function () {
 });
 
 
+// New share buttons
+document.addEventListener('DOMContentLoaded', function() {
+  // Function to handle VKontakte/Tuenti buttons changes
+  function handleButtons() {
+      // Handle VKontakte -> WhatsApp
+      const vkButtons = document.querySelectorAll('.cc-sharebuttons-vkontakte');
+      vkButtons.forEach(button => {
+          const currentUrl = encodeURIComponent(window.location.href);
+          // Using web.whatsapp.com for better desktop compatibility
+          button.href = `https://web.whatsapp.com/send?text=${currentUrl}`;
+          // Check if mobile device, then use different URL
+          if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+              button.href = `https://api.whatsapp.com/send?text=${currentUrl}`;
+          }
+          button.title = 'WhatsApp';
+      });
+
+      // Handle Tuenti -> Telegram
+      const tuentiButtons = document.querySelectorAll('.cc-sharebuttons-tuenti');
+      tuentiButtons.forEach(button => {
+          const currentUrl = encodeURIComponent(window.location.href);
+          button.href = `https://t.me/share/url?url=${currentUrl}`;
+          button.title = 'Telegram';
+      });
+  }
+
+  // Rest of the code remains the same...
+  function updateLabels() {
+      const labels = document.querySelectorAll('.cc-m-label-text');
+      labels.forEach(label => {
+          if (label.textContent.trim() === 'VKontakte') {
+              label.textContent = 'WhatsApp';
+          }
+          if (label.textContent.trim() === 'Tuenti') {
+              label.textContent = 'Telegram';
+          }
+      });
+  }
+
+  // Initial run
+  handleButtons();
+  updateLabels();
+
+  // Create a MutationObserver to watch for DOM changes
+  const observer = new MutationObserver(function(mutations) {
+      mutations.forEach(function(mutation) {
+          if (mutation.addedNodes.length) {
+              handleButtons();
+              updateLabels();
+          }
+      });
+  });
+
+  observer.observe(document.body, {
+      childList: true,
+      subtree: true
+  });
+});
+
 
 
 
@@ -450,6 +509,7 @@ $('.draggable-top-header').prependTo($('.jtpl-header'));
 // $('.draggable-top-header.has-large-inner .matrix-column').addClass('add-5');
 $('.draggable-top-header.has-inner > .j-hgrid').addClass('inner');
 $('.draggable-btm-header'). insertAfter($('.jtpl-header'));
+$(".hs-magic,.is-header-block").insertAfter($(".jtpl-header .jtpl-navigation"));
 $('.draggable-logo').prependTo($('.jtpl-title'));
 // full width image gallery
 $('.is-fullwidth.is-col-1 .cc-m-gallery-stack-column').css('width', '100%');
