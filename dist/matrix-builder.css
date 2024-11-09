@@ -1,7 +1,7 @@
 /* -------------------------------------------------------------------------------- /
 
     MATRIX PAGE BUILDER
-    VERSION: 6.5.3 (07.11.2024)
+    VERSION: 6.5.4 (09.11.2024)
     DESCRIPTION: Front-End framework for Jimdo Creator websites
     AUTHOR: Serhiy Hembarevskyy
     URI: https://www.matrix-themes.com/page-builder
@@ -1829,6 +1829,22 @@ blockquote cite {
 #cc-inner .has-link-underlined_ a:hover,
 #cc-inner a.has-link-underlined:hover {
  border-bottom: 1px solid;
+}
+
+#cc-inner .has-primary-social .cc-sharebuttons-element a::before {
+    color: var(--bg-primary);
+}
+
+#cc-inner .has-primary-light-social .cc-sharebuttons-element a::before {
+    color: var(--bg-primary-light);
+}
+
+#cc-inner .has-secondary-social .cc-sharebuttons-element a::before {
+    color: var(--bg-secondary);
+}
+
+#cc-inner .has-secondary-dark-social .cc-sharebuttons-element a::before {
+    color: var(--bg-secondary-dark);
 }
 
 
